@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var goToWork = [
+      "알람이 울려서 잠에서 깨어남",
+      "누운 자리에서 스트레칭 하기",
+      "오트밀 아침식사 준비하기",
+      "30분 타이머 맞추고 책읽으면서 아침먹기",
+      "외출복으로 갈아입기",
+      "세면하기",
+      "애플워치 착용하기",
+      "노트북, 아이패드 가방에 넣기",
+      "텀블러, 도시락 도시락가방에 넣기",
+      "신발신기",
+      "문열고 나가기",
+      "건물 1층으로 내려가기",
+      "자전거 끌고 공동현관문 나가기",
+      "집에서 우회전해서 괴정고 정문까지 직진",
+      "좌회전 후 다음 사거리까지 직진",
+      "신호대기 후 횡단보도 건너서 4차선 도로까지 직진",
+      "좌회전 후 사거리까지 직진",
+      "우측 신호대기 후 횡단보도 건너서 학원 앞까지 직진",
+      "학원 앞 자전거 거치대에 자전거 올리기",
+      "자전거 앞바퀴에 자물쇠 채우기",
+      "학원 1층 계단문 열고 3층까지 올라가기",
+      "학원 3층 계단문 열고 교실까지 직진하기",
+      "305호실 입장하고 핸드폰에서 hrd어플 실행하기",
+      "hrd어플에서 qr코드 촬영해서 입력하기"
+    ]
+    // console.log(goToWork);
+    // console.log(goToWork[15]);
+    // console.log(goToWork[15,17]);
+
+    for(let i = 0; i < goToWork.length; i++) {
+      let makeTag = `<li>${goToWork[i]}</li>`;
+      makeTag.textContent = goToWork[i];
+      document.body.innerHTML += makeTag;
+    }
+    
+  </script>
+</body>
+</html>

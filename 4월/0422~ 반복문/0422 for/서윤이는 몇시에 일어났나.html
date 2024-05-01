@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // '나의 이름'을 찾아 콘솔에 출력
+    var names = [
+  ["구", "하", "림"],
+  ["김", "보", "미"],
+  ["김", "수", "현"],
+  ["김", "정", "수"],
+  ["문", "혜", "림"],
+  ["배", "성", "빈"],
+  ["백", "지", "원"],
+  ["송", "이", "현"],
+  ["신", "지", "윤"],
+  ["유", "으", "뜸"],
+  ["유", "호", "영"],
+  ["이", "연", "승"],
+  ["이", "재", "영"],
+  ["이", "종", "수"],
+  ["임", "유", "진"],
+  ["정", "호", "연"],
+  ["조", "우", "식"],
+  ["조", "자", "연"],
+  ["최", "유", "진"],
+  ["황", "재", "민"]
+]
+    //변수의 길이 확인
+    console.log(names.length);
+
+    // for(var index = 0; index < 1; index++) {
+    //     window.console.log(names);
+    //   }
+    
+    //변수 중 "문"을 갖고있는 순번 찾기
+    for (let i = 0; i<20; i++){
+    ;
+      if (names[i][0] === "문"){
+        console.log(i)
+      }
+      //찾은 순번에 문자들을 모아 문자열로 만들기
+      if (i == 4){
+          console.log(names[i][0]+names[i][1]+names[i][2])
+        }
+    }
+
+  </script>
+</body>
+</html>

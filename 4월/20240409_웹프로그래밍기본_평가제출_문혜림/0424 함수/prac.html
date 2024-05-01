@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <h1 onclick="tryCgansgd()">문혜림</h1>
+    <h1 onclick="lier()">이서윤</h1>
+  </div>
+
+  <script>
+// 동적할당
+    
+    // 함수(소괄호){실행문}
+
+    var i = document.getElementById('root');
+
+    function tryCgansgd(){
+
+    i.children[0].innerHTML ='이서윤';
+    i.children[0].style.color='blue';
+    }
+  
+    function lier(){
+
+    i.children[1].innerHTML ='문혜림';
+    i.children[1].style.background = 'blue';
+    }
+
+    </script>
+</body>
+</html>

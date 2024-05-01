@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  var timeQ = prompt("서윤이는 오늘 몇시에 일어났나요?", "시간 숫자만 적어주세요. 예) 7");
+  alert(timeQ);
+
+  let timeA = Number(timeQ);
+
+  if (timeA <= 7) {
+      alert('일찍일어났네요! 칭찬스티커~');
+  } else if (timeA >= 9) {
+      alert("늦었네요~ 다음엔 더 일찍 일어나세요~");
+  } else {
+      alert("그냥 그렇네요~");
+  }
+
+  </script>
+</body>
+</html>

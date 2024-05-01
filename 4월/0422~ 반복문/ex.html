@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <div>문</div>
+    <div>혜</div>
+    <div>림</div>
+    </div>
+
+    <script>
+      var root = document.getElementById('root');
+      var name = ["이","서","윤"];
+
+      console.dir(root);
+
+      for(let i = 0; i < root.children.length; i++){
+        root.children[i].innerHTML = name[i]
+      }
+      
+      let arr = ["운동" , "음식" , "야구", "농구", "축구", "편의점"];
+      console.dir(arr);
+
+      for(let i = 0; i < arr.length; i++){
+        if(arr[i] === "음식")
+        arr[i] = '배구'
+      }
+      console.log(arr);
+
+
+
+
+    </script>
+</body>
+</html>

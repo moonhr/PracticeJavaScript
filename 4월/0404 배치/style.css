@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body > div {
+  position: relative;
+}
+
+
+div>div{
+  position: relative;
+}
+body > div:nth-child(2) > div:first-child > p{
+  position: absolute;
+  z-index: 1;
+}
+body > div:nth-child(2) > div:first-child > p img{
+  width: 100px;
+}

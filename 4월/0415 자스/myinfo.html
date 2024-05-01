@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- * -->
+  <script>
+    var myInfo = {};
+    myInfo.name = '문혜림';
+    console.log(myInfo.name);
+    // 동적으로 myJob은 developer 입력
+    myInfo.myJob = 'developer';
+    console.log(myInfo.myJob);
+    console.log(myInfo['myJob']);
+    //객체의 키가 숫자에 해당하는 경우
+    myInfo = {
+      1 : '고구마',
+    }
+    console.log(myInfo['1']);
+
+    var namelist = {
+      1 : '구하림',
+      2 : '김보미',
+      3 : '문혜림',
+    }
+    console.log(namelist[2]);
+
+    var namelist = [
+      '구하림',
+      '김보미',
+      '문혜림',
+  ]
+    console.log(namelist[2]);
+    console.log(namelist);
+     //
+
+  </script>
+</body>
+</html>

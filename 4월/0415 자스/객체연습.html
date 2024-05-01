@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var americanoPrice;
+    americanoPrice = {
+      "water" : 17500,
+      "espresso" : 200000,
+      "cup" : 3000000,
+      "pay" : 5000000,
+      "tax" : 1000000,
+      "holder" : 200000,
+    };
+    var morgana;
+    morgana = {
+      "q" : 'DarkBinding',
+      "w" : 'TormentedShadow',
+      "e" : 'BlackShield',
+      "r" : 'Soul Shackles',
+    };
+    var beer;
+    beer = {
+      "eil" : ['페일에일','ipa','호가든'],
+      라거맥주 : ['필스너','칭따오','버드와이저'],
+    };
+    var 오후일정 = ['자바스크립트 객체 연습하기','객체 정리하기','등호 정리하기'];
+
+    var 타입별_귀여운_포켓몬;
+    타입별_귀여운_포켓몬 = {
+      노말 : ['잠만보', '메타몽', '이브이'],
+      격투 : ['마크탕', '곤율랭'],
+      비행 : ['토게틱', '통통코'],
+      독 : ['이상해씨', '팬텀', '꼴깍몬'],
+      땅 : ['우파', '코코리'],
+      바위 :['코산호', '암멍이'],
+      벌레 : ['세꿀버리', '뿔충이'],
+      고스트 : ['무우마', '불켜미'],
+      강철 : ['토게데마루', '어리짱'],
+      불꽃 : ['식스테일', '아차모', '푸호꼬'],
+      물 : ['어니부기', '고라파덕', '마릴'],
+      풀 : ['치코리타', '리피아', '백솜모카'],
+      전기 : ['에몽가', '피카츄', '파치리스'],
+      에스퍼 : ['야돈', '뮤', '에브이'],
+      얼음 : ['포푸니', '글레이시아', '눈꼬마'],
+      드래곤 : ['미뇽', '터검니'],
+      악 : ['블래키', '나옹'],
+      페어리 : ['삐', '엘풍', '님피아']
+    };
+    var qwer;
+    qwer = {
+      "멤버" : ['초단','마젠타','히나','시연'],
+      "노래" : ['discord','manito']
+    };
+    var pasta;
+    pasta = {
+      "롱파스타" : ['스파게티','링귀네','페투치네'],
+      "숏파스타" : ['펜네','리가토니','푸실리']
+    };
+    var apple;
+    apple = {
+      "아이폰" : ['미니','일반','프로','프로맥스'],
+      "맥북" : ['에어','일반','프로'],
+      "아이패드" : ['미니','일반','프로'],
+      '에어팟' : []
+    };
+
+const person = {
+    name: ["Bob", "Smith"],
+    age: 32,
+    gender: "male",
+    interests: ["music", "skiing"],
+    bio: function () {
+        alert(
+            this.name[0] + " " + this.name[1] + " is " + this.age +
+                    " years old. He likes " + this.interests[0] + " and " + this.interests[1] +
+                    ".",
+        );
+    },
+greeting: function () {
+    alert("Hi! I'm " + this.name[0] + ".");
+}
+};
+    window.console.log(person);
+    window.console.log(americanoPrice);
+    window.console.log(morgana);
+    window.console.log(americanoPrice.water+americanoPrice.pay);
+    window.console.log(beer);
+    window.console.log(오후일정);
+    window.console.log(타입별_귀여운_포켓몬);
+    window.console.log(타입별_귀여운_포켓몬.비행+타입별_귀여운_포켓몬.전기);
+    window.console.log(qwer);
+    window.console.log(pasta);
+    window.console.log(apple);
+  </script>
+</body>
+</html>

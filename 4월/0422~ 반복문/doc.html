@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <div>김수현</div>
+    <div>유호영</div>
+    <div>조자연</div>
+  </div>
+
+  <script>
+    let root = window.document.getElementById('root');
+    console.log(root);
+
+    //문법이 다른뿐 html의 id와 같은 방식이다. 다만 html이 정적이라면 얘는 동적이다.
+    root.id = 'container';
+    console.dir(root);
+
+    //html 텍스트 바꿔보기(동적)
+    console.log(root.children[0]);
+    console.dir(root.children[0]);
+    console.log(root.children[0].textContent);
+    root.children[0].textContent = "문혜림";
+    
+    let moon = "문";
+    root.children[0].innerHTML = moon;
+
+    //반복문으로 이름 3개 다 바꾸기
+    let arr = ["정다희", "김유진", "서소현"];
+
+    //for=반복, length=배열있음
+    for(let i = 0;  i < root.children.length; i++){
+      root.children[i].textContent = arr[i]
+    }
+
+    for(let i = 0;  i < root.children.length; i++){
+      //참이 아니면 실행 안함
+      if(arr[i] === '정다희'){
+        arr[i] = '이서윤';
+      };
+      root.children[i].textContent = arr[i]
+    }
+
+
+
+
+
+    //반복문의 다른 방식들
+    for(let child of Array.from(root.children))
+    {
+      console.log(child.textContent);
+    }
+
+
+    let arrr = [1,2,3];
+    for(let child of arrr)
+    {
+      console.log(child);
+    }
+
+
+    [...root.children].forEach((child) => {console.log(child.textContent)});
+
+
+  </script>
+</body>
+</html>

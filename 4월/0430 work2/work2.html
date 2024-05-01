@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">테스트</div>
+  <script>
+    const root = document.getElementById('root');
+    //문서에는 존재하지 않지만 콘솔에는 나옴 -> 만들어진거지 문서에 쓰여진것은 아님
+    const h1 = document.createElement('h1');
+    console.log(root);
+    //DOM API중 하나 문서쓸때만 가용
+    root.appendChild(h1);
+    h1.innerText = '문혜림';
+    console.dir(h1);
+    //h1태그에 id요소 추가
+    h1.id = 'element';
+  </script>
+</body>
+</html>

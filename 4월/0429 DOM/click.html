@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <div id="white"></div>
+    <div id="black"></div>
+  </div>
+  <script>
+    let root = document.getElementById('root');
+    let white = document.getElementById('white');
+    let black = document.getElementById('black');
+    console.log(root, white, black);
+
+    white.innerHTML = 'white';
+    white.style.width = '300px';
+    white.style.height = '300px';
+    white.style.border = '1px solid black';
+    white.style.background = 'orange';
+
+    black.innerHTML = 'black';
+    black.style.width = '300px';
+    black.style.height = '300px';
+    black.style.border = '1px solid black';
+    black.style.background = 'salmon';
+
+    function whiteControl(){
+      white.style.display = 'none';
+    };
+
+    white.addEventListener('click', whiteControl);
+
+  black.addEventListener('click', () => {
+    white.style.display = 'block';
+  }
+)
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+html{
+  margin: 0;
+  padding: 0;
+  font-family: Dancing Script;
+}
+
+.top{
+  text-align: center;
+  position: relative;
+  top: 10px;
+  font-size: 150%;
+}
+
+.content{
+  display: flex;
+  /* position: absolute;
+  top: 100px; */
+  position: relative;
+  top: 20px;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+}
+/* .content > p {
+  display: block;
+} */
+
+img{
+  width: 52vw;
+}
+
+.content > div:first-child{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: right;
+  width: 20%;
+}
+
+.content div:first-child   p:first-child{
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.content div:first-child p:nth-child(2){
+  font-size: 3vw;
+  text-align: center;
+}
+
+.content > div:first-child > div{
+  /* font-size: 3vw;
+  text-align: left; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: left;
+}
+/* 
+.content div:first-child p:nth-child(3) div{
+  /* display: block; 
+  font-size: 3vw;
+  text-align: left;
+} */
+
+label{
+  font-family: sans-serif;
+  font-size: 3vw;
+}
+
+p{
+  margin: 0;
+}
+
+.content > div:nth-child(3){
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.content > div:nth-child(3) > div {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.content div:last-child p:last-child{
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 7vw;
+}

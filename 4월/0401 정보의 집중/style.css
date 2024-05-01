@@ -1,0 +1,22 @@
+html{
+    width: 100%;
+    height: 100%;
+    font-family: 'Noto Sans KR';
+    text-align: justify;
+    background: rgb(40, 62, 62);
+    color: white;
+}
+h2{
+    font-size: medium;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+p{
+    font-size: 10px;
+}
+.open{
+    margin-bottom: 30px;
+}
+.close{
+    padding-bottom: 30px;
+}

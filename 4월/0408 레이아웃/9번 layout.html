@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>no9. layout</title>
+  <style>
+    body > div {
+      display: grid;
+      width: 90%;
+      height: 60vw;
+      grid-template-columns: repeat(8,1fr);
+      grid-template-rows: repeat(5,1fr);
+    }
+    body > div > div {
+      background: salmon;
+      border: 1px black solid;
+      margin: 2px;
+    }
+    div > div:first-child{
+      grid-column: 1/5;
+      grid-row: 1/2;
+    }
+    div > div:nth-child(2){
+      grid-column: 5/8;
+      grid-row: 1/2;
+    }
+    div>div:nth-child(3){
+      grid-column: 1/5;
+      grid-row: 2/5;
+    }
+    div>div:nth-child(4){
+      grid-column: 5/6;
+      grid-row: 2/4;
+    }
+    div>div:nth-child(5){
+      grid-column: 5/6;
+      grid-row: 4/5;
+    }
+    div>div:nth-child(6){
+      grid-column: 6/7;
+      grid-row: 2/5;
+    }
+    div>div:nth-child(7){
+      grid-column: 7/8;
+      grid-row: 2/4;
+    }
+    div>div:nth-child(8){
+      grid-column: 7/8;
+      grid-row: 4/6;
+    }
+    div>div:nth-child(9){
+      grid-column: 1/2;
+      grid-row: 5/6;
+    }
+    div>div:nth-child(10){
+      grid-column: 2/4;
+      grid-row: 5/6;
+    }
+    div>div:nth-child(11){
+      grid-column: 4/7;
+      grid-row: 5/6;
+    }
+    div>div:nth-child(12){
+      grid-column: 8/9;
+      grid-row: 1/6;
+    }
+
+  </style>
+</head>
+<body>
+  <div>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+    <div>10</div>
+    <div>11</div>
+    <div>12</div>
+  </div>
+</body>
+</html>

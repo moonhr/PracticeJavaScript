@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>no.1 layout</title>
+  <style>
+    div{
+      border: 1px solid black;
+    }
+
+    .container{
+      width: 90vw;
+      height: 60vw;
+      display: flex;
+      margin: 10px;
+    }
+
+    .container > div:first-child {
+      width: 15vw;
+      display: grid;
+      grid-template-rows: 3fr 1fr 1fr;
+    }
+
+    .container > div:nth-child(2) {
+      width: 55vw;
+    }
+
+    .container > div:last-child{
+      width: 30vw;
+      display: grid;
+      grid-template-rows: 4fr 1fr;
+    }
+
+    .container > div:last-child > div {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container > div:last-child > div > div {
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+    <div>4</div>
+    <div>
+      <div>
+        <div>5</div>
+        <div>
+          <div>6</div>
+          <div>7</div>
+        </div>
+      </div>
+      <div>8</div>
+    </div>
+  </div>
+</body>
+</html>

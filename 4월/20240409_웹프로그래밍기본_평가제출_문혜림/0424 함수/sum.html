@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    // 함수의 기본형
+    // 매개변수라고 함
+    // + 덧셈을 하는 로직, 알고리즘
+    // 주문하는 것이 함수 호출
+
+    // function plus(a, b){
+    //   return a + b;
+    // }
+
+    function sum(a,b){
+      return a+b > 10 ? console.log('사과') : console.log('배');
+    }
+
+    sum(5,1);
+
+    function plus(x,y){
+      if(x+y > 10){
+        return console.log('사과');
+      }else{
+        return console.log('배');
+      }
+    }
+
+    plus(10,10);
+
+    //함수와 if문 활용
+//     function checkAge(age) {
+//   if (age > 18) {
+//     return true;
+//   } else {
+//     return confirm('보호자의 동의를 받으셨나요?');
+//   }
+// }
+
+    //삼항 조건 연산자 활용해서 같은 결과 내기
+    //     function checkAge(age) {
+    //   return (age > 18) ? true : confirm('보호자의 동의를 받으셨나요?');
+    // }
+
+  </script>
+</body>
+</html>

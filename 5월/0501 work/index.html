@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+    const root = document.getElementById('root');
+
+    const container = document.createElement('div');
+    const item = document.createElement('div');
+    const button = document.createElement('button');
+
+    root.appendChild(container);
+    container.appendChild(item);
+    container.appendChild(button);
+
+    console.dir('container');
+
+    document.body.style.backgroundColor = 'rgba(217, 217, 217, 1)';
+    document.body.style.margin = '0';
+    document.body.style.padding = '0';
+
+    container.style.width = '100vw';
+    container.style.height = '100vh';
+
+    console.dir(item);
+
+    item.style.position = 'absolute';
+    item.style.zIndex = '1';
+    item.style.background = 'rgba(176, 176, 176, 1)';
+    item.style.width = '80vw';
+    item.style.height = '100vh';
+
+
+    root.children[0].style.he
+    button.style.backgroundColor = 'rgba(70, 70, 70, 1)';
+    button.style.width = '80px';
+    button.style.height = '80px';
+    button.style.margin = '50px';
+    button.innerHTML = '버튼';
+    button.style.position = 'absolute';
+    button.style.zIndex = '2';
+
+    console.dir(button.style);
+
+    button.addEventListener('click', function () {
+      item.style.display = 'none';
+    }
+    )
+
+
+    // const elements = {
+    //   triggerElement: {button},
+    //   targetElement: {item},
+    //   outText: "none",
+    //   inText: "block",
+    // }
+
+    // let bClick = true;
+
+    // function clickElement(clickTriggerElement, targetElement, outText, inText) {
+    //   if(bClick == true){
+
+    //   function outEvent(targetElement, outText) {
+    //     targetElement.style.display = outText;
+    //   }
+    //   clickTriggerElement.addEventListener('click', outEvent(targetElement, outText));
+    //   bClick = false;
+
+    //   } else {
+
+    //     function inEvent(targetElement, inText) {
+    //       targetElement.style.display = inText;
+    //     }
+    //     clickTriggerElement.addEventListener('click', inEvent(targetElement, inText));
+    //     bClick = true;
+    //   }
+    // };
+
+
+    // clickElement(elements.triggerElement, elements.targetElement, elements.outText, elements.inText);
+
+
+
+    //버튼 활성화
+    let bClick = true;
+
+    button.addEventListener('click', function appearEvent() {
+      if (bClick == true) {
+        item.style.display = 'none';
+        bClick = false;
+      } else {
+        item.style.display = 'block';
+        bClick = true;
+      }
+    });
+
+    // function reSize() {
+    //   let min1024 = window.matchMedia("screen and (min-width:1024px)");
+    //   let min601max1024 = window.matchMedia("screen and (min-width: 601px) and (max-width: 1024px)");
+
+    //   min1024.onchange = (e) => {
+    //     if (e.matches) {
+    //       item.style.width = '100vw';
+    //       item.style.height = '50vh';
+    //     }
+    //   }
+    //   min601max1024.onchange = (e) => {
+    //     if (e.matches) {
+    //       item.style.width = '50vw';
+    //       item.style.height = '100vh';
+    //     }
+    //   }
+    // }
+
+    window.addEventListener('resize', function () {
+      setTimeout(function(){
+      if (window.innerWidth >= 1024) {
+        item.style.width = '100vw';
+        item.style.height = '50vh';
+        console.log(데스크탑)
+      } else {
+        item.style.width = '50vw';
+        item.style.height = '100vh';
+        console.log(모바일)
+      }
+    },1000);
+  });
+
+  </script>
+</body>
+
+</html>

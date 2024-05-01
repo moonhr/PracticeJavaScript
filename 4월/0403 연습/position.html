@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      position: relative;
+    }
+    p{
+      width: 10px;
+      height: 10px;
+      background-color: blueviolet;
+      display: inline-block;
+    }
+    p:last-child{
+      position: absolute;
+      top: 20px; left: 30px;
+    }
+
+    body {
+      background-color: pink;
+    }
+
+    @media (min-width: 30em) {
+      body {
+        background-color: blue;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+  </div>
+  <div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+  </div>
+  <div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+  </div>
+</body>
+</html>

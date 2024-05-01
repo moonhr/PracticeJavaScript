@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>no6. layout</title>
+  <style>
+    body {
+      max-width: 1728px;
+      max-height: 1117px;
+    }
+
+    div {
+      border: 1px solid black;
+    }
+
+    body > div {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      height: 60vw;
+      /* grid-auto-rows: minmax(auto, 1000px); */
+    }
+
+    body > div > div:nth-child(2) {
+      display: grid;
+      grid-template-rows: 4fr 1fr;
+    }
+
+  </style>
+</head>
+<body>
+  <div>
+    <div>
+      main
+    </div>
+    <div>
+      <div>
+        content1
+      </div>
+      <div>
+        content2
+      </div>
+    </div>
+  </div>
+</body>
+</html>

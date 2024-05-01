@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>no4. layout</title>
+  <style>
+    div{
+      border: 1px solid black;
+    }
+
+    .container{
+      width: 90vw;
+      height: 60vw;
+      display: flex;
+    }
+
+    .container > div:first-child, div:nth-child(3), div:last-child{
+      width: 10vw;
+      display: grid;
+      grid-template-rows: 3fr 1fr 1fr;
+    }
+
+    .container > div:nth-child(2){
+      width: 60vw;
+    }
+
+    .container > div:nth-child(4){
+      width: 10vw;
+    }
+
+    /* 같은 비율 줬는데 왜 다른거같지 */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+    <div>4</div>
+    <div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+    </div>
+    <div>8</div>
+    <div>
+      <div>9</div>
+      <div>10</div>
+      <div>11</div>
+    </div>
+  </div>
+</body>
+</html>

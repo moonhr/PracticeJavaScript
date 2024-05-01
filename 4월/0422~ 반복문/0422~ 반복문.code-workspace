@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "0422~ 반복문",
+			"path": "."
+		},
+		{
+			"name": "my refrigerator",
+			"path": "../my refrigerator"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "0422~ 반복문"
+	}
+}
