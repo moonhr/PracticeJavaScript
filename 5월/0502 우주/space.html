@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //가장 먼저 읽어야하는 것 부터 작성
+    //배열 하나 만들어주자
+    let planets = ['수성', '금성', '지구', '화성', '목성', '토성', '천왕성', '해왕성'];
+    //함수를 호출하는데, 얘를 변수에 담네? 그럼 이건 값인가?
+    let updatePlanets = addItem(planets, '명왕성', 5);
+    //문자열이거나, 배열일 확률이 높다.
+    for(let i = 0; i < updatePlanets.length; i++){
+      console.log(updatePlanets[i]);
+    }
+
+    function addItem(array, item, index) {
+      let newArray = [];
+      
+      function inIndexAfterInsertionPoint(currentIndex) {
+        return currentIndex > index;
+      }
+      //매개변수로 배열을 받아옴 -> 높은확률로 배열
+      for(let i = 0; i <= array.length; i++) {
+        if(i === index) {
+          newArray[i] = item;
+        } else if (inIndexAfterInsertionPoint(i) === true) {
+          newArray[i] = array[i - 1];
+        } else {
+          newArray[i] = array[i];
+        }
+      }
+      return newArray;
+    }
+
+  </script>
+</body>
+</html>
