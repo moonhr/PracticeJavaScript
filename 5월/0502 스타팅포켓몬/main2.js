@@ -43,3 +43,9 @@ for (var i = 0; i < poketballs.length; i++) {
   });
 }
 
+if(window.innerWidth < 768){
+  first.children[0].children[0].style.height = '20vh';
+  first.children[2].children[0].style.height = '15vh';
+  first.children[2].children[1].style.height = '15vh';
+  first.children[2].children[2].style.height = '15vh';
+}
