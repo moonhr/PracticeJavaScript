@@ -12,6 +12,110 @@
   <button id="add-button">항목 추가</button>
   <button id="remove-button">항목 제거</button>
 
-  
+  <script>
+    let root = document.getElementById('root');
+    let addButton = document.getElementById('add-button');
+    let removeButton = document.getElementById('remove-button');
+    let todoInput = document.getElementById('todo-input');
+    let orderSelect = document.getElementById('order-select');
+    let todoItems = [];
+
+
+    function getInputValue() {
+      return todoInput.value.trim();
+    }
+
+    function updateSelectOptions() {
+      //todoItems의 길이를 변수에 담음
+      let length = todoItems.length;
+      //orderSelect의 내용을 비워줌
+      orderSelect.innerHTML = '';
+      //todoItems의 길이만큼 반복문을 돌림
+      for (let i = 0; i < length; i++) {
+        //option태그를 만들어줌
+        let option = document.createElement('option');
+        //option태그의 value값을 i로 설정
+        option.value = i;
+        //option태그의 text값을 i + 1로 설정
+        option.text = `항목 ${i + 1}`;
+        //option태그를 orderSelect에 추가
+        orderSelect.appendChild(option);
+      }
+      //마지막 option태그를 만들어줌
+      let lastOption = document.createElement('option');
+      //마지막 option태그의 value값을 마지막으로 설정
+      lastOption.value = "마지막";
+      //마지막 option태그의 text값을 마지막으로 설정
+      lastOption.text = "마지막";
+      //마지막 option태그를 orderSelect에 추가
+      orderSelect.appendChild(lastOption); // Adding 'Last' option at the end of the list
+    }
+
+    function updateView() {
+      //root의 내용을 비워줬다
+      root.innerHTML = '';
+      //todoItems의 길이만큼 반복문을 돌림
+      for (let i = 0; i < todoItems.length; i++) {
+        //p태그를 만들어줌
+        let itemElement = document.createElement('p');
+        //p태그의 text값을 todoItems의 i번째 값을 담음
+        itemElement.textContent = `${todoItems[i]}`;
+        //p태그를 root에 추가
+        root.appendChild(itemElement);
+      }
+      //함수를 실행
+      updateSelectOptions();
+    }
+
+    function getOrder() {
+      let orderValue = orderSelect.value;
+      if (orderValue === '마지막') {
+        return todoItems.length - 1;
+      } else {
+        return parseInt(orderValue);
+      }
+    }
+
+    function addItem() {
+      //입력창의 값을 변수에 담음
+      let newItem = getInputValue();
+      //선택창의 값을 변수에 담음
+      let order = getOrder();
+      //입력창의 값이 공백이 아니라면
+      if (newItem !== "") {
+        //선택창의 값이 todoItems의 길이와 같다면
+        if (order === todoItems.length - 1) {
+          //todoItems의 길이에서 -1한 결과를 order에 담음
+          todoItems.push(newItem); // Add at the end
+          //
+        } else {
+          //todoItems의 order번째에 newItem을 담음
+          todoItems.splice(order, 0, newItem);
+        }
+        updateView();
+        //입력창의 값을 공백으로 설정
+        todoInput.value = ''; // Clear input after adding
+      } else {
+        console.error('할 일을 입력해야 합니다.');
+      }
+    }
+
+    function removeItem() {
+      //반환값을 변수에 담음
+      let order = getOrder();
+      //선택창의 값이 todoItems의 길이와 같다면
+      if (order >= 0 && order < todoItems.length) {
+        //todoItems의 order번째를 삭제
+        todoItems.splice(order, 1);
+        updateView();
+      } else {
+        //오류메세지 출력
+        console.error('유효하지 않은 순서입니다.');
+      }
+    }
+    addButton.addEventListener('click', addItem);
+    removeButton.addEventListener('click', removeItem);
+    updateSelectOptions(); // Initialize select options
+  </script>
 </body>
 </html>
