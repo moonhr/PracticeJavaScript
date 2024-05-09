@@ -11,3 +11,5 @@ calcBooha(10, 20, function(a, b) {
   let result = a - b;
   return result;
 });
+
+console.log(calcBooha);

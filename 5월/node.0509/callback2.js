@@ -12,12 +12,11 @@ function add(a, b){
 }
 
 console.log(b(1, 2, function(a,b) {
-  if(a === ""){
-    if(b ===""){
-      console.log(a+b);
-    }
-  } else {
-    console.log(a * b);
-  }}));
+  if(typeof(a) === 'string' && typeof(b)){
+    console.log(a+b);
+  } else if(typeof(a) === 'string' || typeof(b)){
+    console.log(a*b);
+  }
+}));
 //호출할 때 함수를 정의한다 => 재활용성 없음
 //a와 b가 둘다 문자열이면 덧셈 아니면 곱셈
