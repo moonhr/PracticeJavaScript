@@ -1,8 +1,4 @@
 
-/**
- * 
- * @param {*} string 
- */
 function work(string) {
   try {
     if(typeof(string) === 'string'){

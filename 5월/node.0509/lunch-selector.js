@@ -38,15 +38,10 @@ function lunchSelector(array){
 
 
 function lunchSelector(array){
-  const ramdomMenu = getRandomInt(0, array.length);
-  array.forEach.() => {}
-  lunchMenus.forEach(array => {
-    getRandomInt(0, array.length)
-
-  if(array.isArray(array) === true){
-    console.log(array);
+  const randomMenu = getRandomInt(0, array.length);
+  if(Array.isArray(array[randomMenu])){
+    
   }
-  });
 }
 
 //강사님 코드
