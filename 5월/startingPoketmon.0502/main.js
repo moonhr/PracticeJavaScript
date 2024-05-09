@@ -1,21 +1,26 @@
+
 const root = document.getElementById('root');
 const first = document.getElementById('first');
 const last = document.getElementById('last');
 const poketballs = document.querySelectorAll('#poketballs img[data-poketmon]');
 
-last.children[0].style.display = 'none';
-last.children[1].style.display = 'none';
-last.children[2].style.display = 'none';
+//* 후에 나타날 요소 display none
+for(let i=0; i<last.children.length; i++){
+  last.children[i].style.display = 'none';
+}
 
 
-// display속성 변경 함수
+/**
+ * * display속성 변경 함수
+ * @param {*} target : data속성 일치 확인
+ */
 function appendPoketmon(target){
   // 포켓몬들을 변수에 할당
-  var poketmons = document.getElementById("last").children;
+  let poketmons = document.getElementById("last").children;
   // 포켓몬의 길이만큼 반복
   for (var i = 0; i < poketmons.length; i++) {
     // 포켓몬을 하나씩 가져옴
-    var div = poketmons[i];
+    let div = poketmons[i];
     // 포켓몬의 data-poketmon 속성이 target과 같으면
     if (div.getAttribute('data-poketmon') === target) {
       // 해당 포켓몬을 보여줌
@@ -29,8 +34,11 @@ function appendPoketmon(target){
 }
 }
 
-//포켓볼의 길이만큼 반복
-for (var i = 0; i < poketballs.length; i++) {
+/**
+ * * data속성 일치 시 클릭이벤트 발동
+ */
+// 포켓볼의 길이만큼 반복
+for (let i = 0; i < poketballs.length; i++) {
   //포켓볼을 클릭하면 함수를 실행
   poketballs[i].addEventListener('click', function() {
     //첫번째 화면을 가리고 뒷 화면을 보여줌
@@ -43,9 +51,10 @@ for (var i = 0; i < poketballs.length; i++) {
   });
 }
 
+//* 모바일환경 시 이미지 사이즈 변경
 if(window.innerWidth < 768){
   first.children[0].children[0].style.height = '20vh';
-  first.children[2].children[0].style.height = '15vh';
-  first.children[2].children[1].style.height = '15vh';
-  first.children[2].children[2].style.height = '15vh';
+  for(let num=0; num<first.children[2].children.length; num++){
+  first.children[2].children[i].style.height = '15vh';
+  }
 }
