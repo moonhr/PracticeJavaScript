@@ -15,11 +15,17 @@ const lunchMenus = [
   "칼국수",
   "콩나물밥",
 ];
+
+
+
 function getRandomInt(min, max) {
   const minCeiled = Math.ceil(min);
   const maxFloored = Math.floor(max);
   return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
 }
+
+
+
 function lunchSelector(array) {
   let firstrandom = getRandomInt(0, array.length);                             // 첫번째 배열에 들어갈 숫자를 변수에 저장
   let secondrandom = getRandomInt(0, array[firstrandom].length);
@@ -28,6 +34,7 @@ function lunchSelector(array) {
   }
   return array[firstrandom]                                                   // 이건 그냥 단순 배열일경우 뽑아주기
 }
+
 console.log(lunchSelector(lunchMenus));
 const server = http.createServer((req, res) => {
   if(req.url === "/favicon.ico")

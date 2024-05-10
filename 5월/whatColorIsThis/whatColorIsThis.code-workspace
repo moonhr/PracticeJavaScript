@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../startingPoketmon.0502"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "whatColorIsThis"
+	}
+}
