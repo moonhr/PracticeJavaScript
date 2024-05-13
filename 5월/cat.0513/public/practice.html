@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>애니메이션</h1>
+  <h1>이게 한번씩</h1>
+  <h1>챡챡</h1>
+  <h1>뜨면</h1>
+  <h1>성공이야</h1>
+  <h1>!!!</h1>
+</body>
+
+<script>
+const h1 = document.getElementsByTagName('h1');
+function appendCat(){
+  for(let i = 0; i < h1.length; i++){
+    h1[i].style.display = 'none';
+    }
+    let delay = setInterval(() => {
+      h1[i].style.display = 'block';
+    }, 200);
+}
+// appendCat();
+
+
+
+
+
+</script>
+</html>
