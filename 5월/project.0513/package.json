@@ -1,0 +1,14 @@
+{
+  "name": "project.0513",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "문혜림",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "pokemon": "^3.1.0"
+  }
+}
