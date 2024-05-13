@@ -28,6 +28,14 @@ const server = http.createServer(function(request, response){
       response.write(third);
       response.end();
     }
+    if(request.url === "/minam.html"){
+      const minam = fs.readFileSync("./public/minam.html", "utf8");
+      
+      response.statusCode = 200;
+      response.setHeader('Content-Type', 'text/html; charset=utf-8');
+      response.write(minam);
+      response.end();
+    }
     console.log(request.url);
   }
 });
