@@ -1,0 +1,11 @@
+{
+  "name": "project4.0514",
+  "version": "1.0.0",
+  "description": "project4",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "문혜림",
+  "license": "ISC"
+}

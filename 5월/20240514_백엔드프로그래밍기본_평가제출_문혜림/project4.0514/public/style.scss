@@ -1,0 +1,74 @@
+$color1: rgba(217, 217, 217, 1);
+$color2: rgba(189, 222, 134, 1);
+$color3: rgba(134, 222, 169, 1);
+$color4: rgba(134, 169, 222, 1);
+$color5: rgba(173, 134, 222, 1);
+$menu-width:140px;
+$menu-heigth:40px;
+$main-width:1280px;
+$main-heigth:600px;
+body{
+  margin: 0;
+  padding: 0;
+  width: 100vw; 
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#root{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 70%;
+  gap: 25px;
+
+  #menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    a{
+      width: $menu-width;
+      height: $menu-heigth;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: black;
+
+    }
+
+    a:hover{
+      width: calc(#{$menu-width} + 30px);
+    }
+    
+    a:nth-child(1){
+      background-color: $color1;
+    }
+
+    a:nth-child(2){
+      background-color: $color2;
+    }
+
+    a:nth-child(3){
+      background-color: $color3;
+    }
+
+    a:nth-child(4){
+      background-color: $color4;
+    }
+
+    a:nth-child(5){
+      background-color: $color5;
+    }
+  }
+
+  #main{
+    width: 100%;
+    height: 80%;
+    background-color: wheat;
+  }
+}

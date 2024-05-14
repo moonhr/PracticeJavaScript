@@ -6,25 +6,42 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>애니메이션</h1>
-  <h1>이게 한번씩</h1>
-  <h1>챡챡</h1>
-  <h1>뜨면</h1>
-  <h1>성공이야</h1>
-  <h1>!!!</h1>
+  <h1>애</h1>
+  <h1>니</h1>
+  <h1>매</h1>
+  <h1>이</h1>
+  <h1>션</h1>
+  <h1>!</h1>
 </body>
 
 <script>
 const h1 = document.getElementsByTagName('h1');
-function appendCat(){
+
+document.addEventListener("DOMContentLoaded",
+  // function appendCat(){
+  //   for(let i = 0; i < h1.length; i++){
+  //     h1[i].style.display = 'none';
+      
+  //     let delay = setInterval(() => {
+  //         h1[i+1].style.display = 'block'
+  //       }, 500);
+  //   }
+  // }
+  () => {
   for(let i = 0; i < h1.length; i++){
     h1[i].style.display = 'none';
-    }
-    let delay = setInterval(() => {
-      h1[i].style.display = 'block';
-    }, 200);
+  }
+
+  //for문안에 안들어가도됨
+  //* for문을 직접 만든 경우
+  let h1Counter = 0;
+  setInterval(()=>{
+    h1[h1Counter].style.display ='block';
+    h1Counter++
+  },1000)
+  //! clearInterval
 }
-// appendCat();
+);
 
 
 

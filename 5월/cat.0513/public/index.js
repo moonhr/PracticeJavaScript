@@ -17,9 +17,7 @@ function catAppend(cats){
     }
   }
   setInterval((cats) => {
-    if(){
-      cats[0]
-    }
+
   }, 500);
 }
 
