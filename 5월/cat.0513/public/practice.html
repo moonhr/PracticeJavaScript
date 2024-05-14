@@ -44,15 +44,15 @@ document.addEventListener("DOMContentLoaded",
   //* for문을 직접 만든 경우
   let h1Counter = 0;
   setInterval(()=>{
-    h1[h1Counter].style.display ='inline';
+    h1[h1Counter].style.display ='block';
     h1Counter++
   },1000)
-  setTimeout(()=>{
-    setInterval(()=>{
-      h1[h1Counter].style.display ='none';
-      h1Counter++
-    },1000)
-  },1000)
+  // setTimeout(()=>{
+  //   setInterval(()=>{
+  //     h1[h1Counter].style.display ='none';
+  //     h1Counter++
+  //   },1000)
+  // },1000)
   //! clearInterval
 }
 );
