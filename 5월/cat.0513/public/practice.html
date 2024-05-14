@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    body{
+      position: relative;
+    }
+    h1{
+      position: absolute;
+    }
+  </style>
 </head>
 <body>
   <h1>애</h1>
@@ -36,8 +44,14 @@ document.addEventListener("DOMContentLoaded",
   //* for문을 직접 만든 경우
   let h1Counter = 0;
   setInterval(()=>{
-    h1[h1Counter].style.display ='block';
+    h1[h1Counter].style.display ='inline';
     h1Counter++
+  },1000)
+  setTimeout(()=>{
+    setInterval(()=>{
+      h1[h1Counter].style.display ='none';
+      h1Counter++
+    },1000)
   },1000)
   //! clearInterval
 }
