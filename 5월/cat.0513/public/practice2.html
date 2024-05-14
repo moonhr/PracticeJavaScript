@@ -10,7 +10,7 @@
     }
     h1{
       position: absolute;
-      display: none; /* 초기에는 숨겨진 상태 */
+      display: none;
     }
   </style>
 </head>
@@ -30,10 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
   let h1Counter = 0;
 
   setInterval(() => {
-    h1[h1Counter].style.display = 'none'; // 이전 텍스트를 숨김
-    h1Counter = (h1Counter + 1) % h1.length; // 카운터 증가 및 다음 텍스트로 이동
-    h1[h1Counter].style.display = 'inline'; // 새로운 텍스트를 표시
-  }, 1000); // 1초 간격으로 텍스트 전환
+  // 이전 텍스트를 숨김
+    h1[h1Counter].style.display = 'none'; 
+    // 증가 및 다음 텍스트로 이동, h1.length와 같다면 0
+    h1Counter = (h1Counter === h1.length - 1) ? 0 : h1Counter + 1; 
+    // 새로운 텍스트를 표시
+    h1[h1Counter].style.display = 'inline'; 
+    // 1초 간격으로 반복
+  }, 1000); 
 });
 </script>
 </html>
