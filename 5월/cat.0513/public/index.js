@@ -1,48 +1,42 @@
 const root = document.getElementById('root');
 
+/**
+ * html 내부 태그 만드는 반복문
+ */
+for (let i = 0; i < 6; i++) {
+  let div = document.createElement('div');
+  let img = document.createElement('img');
+  root.appendChild(div);
+  div.appendChild(img);
+}
 
+let img = document.getElementsByTagName('img')
+let div = document.getElementById('root').children
+
+/**
+ * 고양이 이미지 불러오는 함수
+ */
 function catAppend() {
-
-  for (let i = 0; i < 6; i++) {
-    let div = document.createElement('div');
-    let img = document.createElement('img');
-    root.appendChild(div);
-    div.appendChild(img);
-    // console.dir(div);
+  for (let i = 0; i < img.length; i++) {
+    let cat = 3455 + i;
+    img[i].src = `../img/IMG_${cat}.PNG`;
+    img[i].alt = '';
   }
-    //* 이거 맞나...
-    // let div = document.getElementById('root').children
-    // for (let cat = 3455; cat < 3461; cat++) {
-    //   let img = document.getElementsByTagName('img')
-    //   for (let i = 0; i < img.length; i++) {
-    //     img[i].src = `../img/IMG_${cat}.PNG`;
-    //     img[i].alt = '';
-    //   }
-    //   // div.innerHTML = `<img src="../img/IMG_${cat}.PNG" alt="">`
-    // }
-
-    let img = document.getElementsByTagName('img')
-    for (let i = 0; i < img.length; i++) {
-      let cat = 3455 + i;
-      img[i].src = `../img/IMG_${cat}.PNG`;
-      img[i].alt = '';
-    }
-
-  // root.children.style.display = 'none';
-
-  }
+}
 
 
-
-const div = document.getElementById('root').children
 //todo 이거 해결해라
-// div.style.display = 'none';
 
-catAppend();
-
-
-
+/**
+ * 애니메이션 동작 함수
+ * DOM=html
+ */
+// window.onload
 document.addEventListener("DOMContentLoaded", () => {
+
+  catAppend();
+  
+  //카운터 0으로 할당
   let catCounter = 0;
 
   setInterval(() => {
@@ -53,12 +47,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // 새로운 텍스트를 표시
     div[catCounter].style.display = 'block';
     console.log('cat');
+
+
     // 1초 간격으로 반복
   }, 150);
 });
 
 
-
-
-// catAppend();
-//animation();
