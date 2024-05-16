@@ -13,6 +13,8 @@ for (let i = 0; i < 6; i++) {
 let img = document.getElementsByTagName('img')
 let div = document.getElementById('root').children
 
+
+
 /**
  * 고양이 이미지 불러오는 함수
  */
@@ -25,7 +27,7 @@ function catAppend() {
 }
 
 
-//todo 이거 해결해라
+//todo 첫화면에 고양이 단체로 안나오게 만들 것
 
 /**
  * 애니메이션 동작 함수
