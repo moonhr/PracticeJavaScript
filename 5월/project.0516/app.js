@@ -20,7 +20,6 @@ const server = http.createServer((request, response) => {
       console.log(data.type);
       const name = data.name;
       const content = data.content;
-      //! ?????????????????????????
 
       fs.writeFile( name + '.html', content, (err) => {
         if (err) throw err;
