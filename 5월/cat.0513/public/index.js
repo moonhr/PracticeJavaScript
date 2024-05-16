@@ -34,25 +34,43 @@ function catAppend() {
  * DOM=html
  */
 // window.onload
+// for(let i = 0; i < img.length; i++){
+//   img[i].style.display = 'none';
+// }
 document.addEventListener("DOMContentLoaded", () => {
+
+  console.log(img);
 
   catAppend();
   
   //카운터 0으로 할당
   let catCounter = 0;
 
+  for(let i = 0; i < img.length; i++){
+    div[i].style.display = 'none';
+  }
+
+
   setInterval(() => {
     // 이전 텍스트를 숨김
     div[catCounter].style.display = 'none';
     // 증가 및 다음 텍스트로 이동, div.length와 같다면 0
     catCounter = (catCounter === div.length - 1) ? 0 : catCounter + 1;
+
+    if(div[catCounter].style.display === 'none'){
+      div[catCounter].style.display = 'block';
+    }
     // 새로운 텍스트를 표시
-    div[catCounter].style.display = 'block';
+    
     console.log('cat');
 
 
     // 1초 간격으로 반복
-  }, 150);
+  }, 500);
 });
 
 
+
+
+//! 체인지이벤트에 이미지
+//! 딥다이브 리페인트 p672
