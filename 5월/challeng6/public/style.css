@@ -28,6 +28,7 @@
 }
 * #root form section fieldset label {
   margin-left: 6px;
+  margin-bottom: 5px;
 }
 * #root form section fieldset div {
   display: flex;
