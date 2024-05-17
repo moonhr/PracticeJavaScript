@@ -121,10 +121,26 @@ password2.addEventListener('input', function passwordDoubleCheck(){
  ** 이메일 확인 검사
  */
 email.addEventListener('input', function emailCheck(){
-  if(email.value.)
+  if(email.value.split('@').length-1){
+    if(email.value.split('.').length-1){
+      if(typeof(email.value.split("@")[0]) === 'string'){
+        if(typeof(email.value.split("@")[1]) === 'string'){
+          if(typeof(email.value.split(".")[1]) === 'string'){
+            if(email.value.indexOf('@')< email.value.indexOf('.')){
+              light[3].style.backgroundColor = 'rgba(74, 255, 81, 1)';
+            } else {
+              light[3].style.backgroundColor = 'rgba(255, 74, 74, 1)';
+            }
+          }
+        }
+      }
+    }
+  }
 })
 
-// }
+/**
+ ** 휴대폰 번호 검사
+ */
 console.dir(number);
 number.onkeyup = function numberCheck(){
   if(number.value === 11){
