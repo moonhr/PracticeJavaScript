@@ -41,18 +41,7 @@ const email = document.getElementById('email');
 const number = document.getElementById('number');
 
 /**
- * 글자수 제한하기
- */
-
-/**
- * 이름 배열에서 하나씩 꺼내기
- */
-// names.forEach((name) => {
-//   console.log(name);
-// })
-
-/**
- * 이름 검사
+ ** 이름 검사
  */
 username.addEventListener('input', function nameCheck(){
   for(let name of names){
@@ -66,88 +55,74 @@ username.addEventListener('input', function nameCheck(){
 })
 
 /**
- * 패스워드 검사
+ ** 패스워드 검사
  */
-password.onkeyup = function passwordCheck(){
-  // let passwordString = password.value.split(',')[1];
-  // let passwordName = password.value.split(',')[0];
+password.addEventListener('input', function passwordCheck(){
+  //입력값을 배열로 저장
   let passwordValue = password.value;
-  let test = [];
-  for(let i =0; i < passwordValue.length; i++){
-    //입력값을 숫자로 받으면 
-    test.push(passwordValue[i])
+  let value = [];
+  for(let i = 0; i<passwordValue.length; i++){
+    value.push(passwordValue[i]);
   }
 
-
+  //문자열과 숫자를 나눠줄 변수
   let testName = '';
   let testNumber = '';
-  test.forEach(element => {
+  //forEach로 입력값을 통과하는 문자와 숫자 분리하여 변수에 담기
+  value.forEach(element => {
     //inNaN 문자면 true 숫자면 false
-    // console.log(isNaN (element));
     if(isNaN(element) === true){
-      // console.log(`문자:`+element);
       testName += element;
     } else {
-      // console.log(`숫자:`+element);
       testNumber += element;
     }
   });
+  
+  let isGreen = false;
 
-  // console.log(`문자:`+testName);
-  // console.log(`숫자:`+testNumber);
-
+  //문자열이 이름에 일치하고 숫자 길이가 4라면 초록함수
   names.forEach(name => {
     if(name === testName){
-      console.log(testNumber.length);
       if(testNumber.length === 4){
-        console.log("초록불");
-        console.log(light[1]);
-        light[1].style.backgroundColor = 'rgba(74, 255, 81, 1)';
+        isGreen = true;
       }
-    } else {
-        light[1].style.backgroundColor = 'rgba(255, 74, 74, 1)';
     }
   });
 
+  function green(){
+    light[1].style.backgroundColor = 'rgba(74, 255, 81, 1)';
+  }
 
+  function red(){
+    light[1].style.backgroundColor = 'rgba(255, 74, 74, 1)';
+  }
   
-  
-  // names.forEach(element => {
-  //   if(element === '이종수'){
-  //     console.log(element);
-  //   } else if (element === '문혜림'){
-  //     console.log(element);
-  //   }
-  // });
+  if(isGreen === true){
+    green();
+  } else {
+    red();
+  }
+})
 
-
-  // for(let name of names){
-  //   if(passwordName === name && passwordString.length === 4){
-  //     light[1].style.backgroundColor = 'rgba(74, 255, 81, 1)';
-  //     break;
-  //   } else {
-  //     light[1].style.backgroundColor = 'rgba(255, 74, 74, 1)';
-  //   }
-  // }
-
-}
 
 /**
- * 패스워드 확인 검사
+ ** 패스워드 확인 검사
  */
-password2.onkeyup = function passwordDoubleCheck(){
+password2.addEventListener('input', function passwordDoubleCheck(){
   if(password.value === password2.value){
     light[2].style.backgroundColor = 'rgba(74, 255, 81, 1)';
     return;
   } else {
     light[2].style.backgroundColor = 'rgba(255, 74, 74, 1)';
   }
-}
+})
 
 /**
- * 이메일 확인 검사
+ ** 이메일 확인 검사
  */
-// email.onkeyup = function emailCheck(){
+email.addEventListener('input', function emailCheck(){
+  if(email.value.)
+})
 
 // }
 console.dir(number);
