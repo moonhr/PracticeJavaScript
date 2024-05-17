@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="root">
+    <form action="/test" method="post">
+
+    <!-- 입력란 창 -->
+    <section>
+
+
+      <fieldset>
+        <label for="username">나의 이름</label>
+        <div>
+          <input type="text" id="username" placeholder="나의 이름을 작성하세요. ex)공욱재">
+          <div class="light"></div>
+        </div>
+      </fieldset>
+
+
+      <fieldset>
+        <label for="password">비밀번호</label>
+        <div>
+          <input type="text" id="password" placeholder="정자이름과 핸드폰 뒷자리 4자리를 작성해주세요. ex)공욱재0957">
+          <div class="light"></div>
+        </div>
+      </fieldset>
+
+
+      <fieldset>
+        <label for="passwordCheck">비밀번호 확인</label>
+        <div>
+          <input type="text" id="passwordCheck" placeholder="위 비밀번호 입력과 동일하게 다시한번 작성해주세요.">
+          <div class="light"></div>
+        </div>
+      </fieldset>
+
+
+      <fieldset>
+        <label for="email">이메일 주소</label>
+        <div>
+          <input type="text" id="email" placeholder="이메일 주소 양식에 맞게 작성해주세요.">
+          <div class="light"></div>
+        </div>
+      </fieldset>
+
+
+      <fieldset>
+        <label for="number">핸드폰 번호</label>
+        <div>
+          <input type="text" id="number" placeholder="- 제외하고 작성해주세요.">
+          <div class="light"></div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <label>작성 완료</label>
+        <div></div>
+      </fieldset>
+    </section>
+  </form>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

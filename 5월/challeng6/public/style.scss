@@ -1,0 +1,72 @@
+@mixin flexColumn() {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flexRow() {
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+
+  #root{
+    margin: 10vw;
+    @include flexColumn();
+
+    form{
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8.8px);
+      -webkit-backdrop-filter: blur(8.8px);
+    
+
+      section{
+        @include flexColumn();
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+
+        fieldset{
+          padding: 10px;
+          border: none;
+
+          label{
+            margin-left: 6px;
+          }
+
+          div{
+            @include flexRow;
+            align-items: center;
+
+            input{
+              padding: 3px;
+              padding-left: 7px;
+              background: rgba(217, 217, 217, 70);
+              border-radius: 10px;
+              border: none;
+              width: 450px;
+              height: 30px;
+            }
+
+            div{
+              padding: 3px;
+              background: rgba(255, 74, 74, 1);
+              width: 32px;
+              height: 32px;
+              border-radius: 10px;
+              margin-left: 20px;
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
+

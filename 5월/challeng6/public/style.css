@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+* #root {
+  margin: 10vw;
+  display: flex;
+  flex-direction: column;
+}
+* #root form {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.8px);
+  -webkit-backdrop-filter: blur(8.8px);
+}
+* #root form section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+* #root form section fieldset {
+  padding: 10px;
+  border: none;
+}
+* #root form section fieldset label {
+  margin-left: 6px;
+}
+* #root form section fieldset div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+* #root form section fieldset div input {
+  padding: 3px;
+  padding-left: 7px;
+  background: rgb(217, 217, 217);
+  border-radius: 10px;
+  border: none;
+  width: 450px;
+  height: 30px;
+}
+* #root form section fieldset div div {
+  padding: 3px;
+  background: rgb(255, 74, 74);
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  margin-left: 20px;
+}/*# sourceMappingURL=style.css.map */
