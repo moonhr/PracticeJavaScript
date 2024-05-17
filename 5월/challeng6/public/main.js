@@ -141,15 +141,14 @@ email.addEventListener('input', function emailCheck(){
 /**
  ** 휴대폰 번호 검사
  */
-console.dir(number);
-number.onkeyup = function numberCheck(){
-  if(number.value === 11){
+number.addEventListener('input', function numberCheck(){
+  if(number.value.length === 11){
     light[4].style.backgroundColor = 'rgba(74, 255, 81, 1)';
     return;
   } else {
     light[4].style.backgroundColor = 'rgba(255, 74, 74, 1)';
   }
-}
+})
 
 /**
  * *함수모음
