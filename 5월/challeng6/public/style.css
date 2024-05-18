@@ -1,3 +1,11 @@
+body {
+  background-image: url(../backgroungImg.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -51,4 +59,22 @@
   height: 32px;
   border-radius: 10px;
   margin-left: 20px;
+}
+
+button {
+  color: black;
+  border: none;
+  background: none;
+  font-size: 1em;
+  padding: 10px;
+}
+
+.green {
+  font-size: 1em;
+  color: black;
+  border: white 2px;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: rgba(145, 233, 37, 0.55);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }/*# sourceMappingURL=style.css.map */

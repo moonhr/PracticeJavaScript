@@ -187,25 +187,23 @@ const formValidation = [
 function checkComplete() {
   //함수를 모두 통과하는지 테스트
   if (lightStatus.every(status => status === true)) {
-    completed();
+    complete.classList.add('green');
+    complete.innerText = '작성완료!';
     console.log('완료');
+    return;
   } else {
-    complete.style.color = '';
+    complete.classList.remove('green');
+    complete.innerText = '작성중';
   }
 }
 
-const completed = () => {
-  complete.style.color = 'rgba(18, 116, 11, 1)';
-  complete.style.background = 'rgba(145, 233, 37, 0.55)'
-  complete.style.borderRadius = '20px';
-  complete.style.borderColor = 'white'
-  complete.style.borderWidth = '2px'
-  complete.style.padding = '10px'
-  complete.style. = '10px'
-}
-
-
-
+/**
+ ** 버튼 활성화 문구
+ */
+complete.addEventListener('click', (event) => {
+  event.preventDefault(); // 클릭 동작 취소
+  alert('완료되었습니다');
+});
 
 checkComplete();
 
