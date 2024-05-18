@@ -2,6 +2,7 @@ const root = document.getElementById('root');
 const fieldset = document.getElementsByTagName('fieldset');
 const input = document.getElementsByTagName('input');
 const light = document.getElementsByClassName('light');
+const complete = document.getElementById('complete');
 
 /**
  ** 이름 데이터
@@ -39,13 +40,20 @@ const password2 = document.getElementById('passwordCheck');
 const email = document.getElementById('email');
 const number = document.getElementById('number');
 
+let lightStatus = [false, false, false, false, false];
+
 function greenLight(n) {
   light[n].style.backgroundColor = 'rgba(74, 255, 81, 1)';
+  lightStatus[n] = true;
+  checkComplete();
 }
 
 function redLight(n) {
   light[n].style.backgroundColor = 'rgba(255, 74, 74, 1)';
+  lightStatus[n] = false;
+  checkComplete();
 }
+
 
 /**
  ** 이름 검사 함수
@@ -116,19 +124,6 @@ function passwordDoubleCheck() {
   }
 }
 
-
-
-
-username.addEventListener('input', nameCheck);
-
-
-password.addEventListener('input', passwordCheck);
-
-
-
-
-password2.addEventListener('input', passwordDoubleCheck);
-
 /**
  ** 이메일 확인 검사
  */
@@ -150,48 +145,68 @@ function emailCheck() {
   redLight(3);
 }
 
-
-email.addEventListener('input', emailCheck);
-
 /**
  ** 휴대폰 번호 검사
  */
-number.addEventListener('input', function numberCheck() {
+function numberCheck() {
   if (number.value.length === 11) {
-    light[4].style.backgroundColor = 'rgba(74, 255, 81, 1)';
+    greenLight(4);
     return;
   } else {
-    light[4].style.backgroundColor = 'rgba(255, 74, 74, 1)';
+    redLight(4);
   }
+}
+
+
+/**
+ ** 이벤트 작동 함수 모음
+ */
+document.addEventListener('DOMContentLoaded',()=>{
+  username.addEventListener('input', nameCheck);
+  password.addEventListener('input', passwordCheck);
+  password2.addEventListener('input', passwordDoubleCheck);
+  email.addEventListener('input', emailCheck);
+  number.addEventListener('input', numberCheck)
 })
 
 /**
  * *함수모음
  */
 
-// const formValidation = [
-//   nameCheck,
-//   passwordCheck,
-//   passwordDoubleCheck,
-//   emailCheck,
-//   numberCheck
-// ]
-
+const formValidation = [
+  nameCheck,
+  passwordCheck,
+  passwordDoubleCheck,
+  emailCheck,
+  numberCheck
+]
 
 /**
-** 참이면 초록불
+** 모두 참이면 활성화 아니면 원래상태
 */
-// function formValidation(){
-//   if(){
-//   }
-//   return {for(let i = 0; i < light.length; i++){
-//     light[i].style.background = 'rgba(74, 255, 81, 1)';
-//   }}
-// }
+function checkComplete() {
+  //함수를 모두 통과하는지 테스트
+  if (lightStatus.every(status => status === true)) {
+    completed();
+    console.log('완료');
+  } else {
+    complete.style.color = '';
+  }
+}
 
-// function nameCheck(Array){
-//   for(let i = 0; i < Array.length; i++){
-//     let name = array[i];
-//     console.log(name);
-//   }
-// }
+const completed = () => {
+  complete.style.color = 'rgba(18, 116, 11, 1)';
+  complete.style.background = 'rgba(145, 233, 37, 0.55)'
+  complete.style.borderRadius = '20px';
+  complete.style.borderColor = 'white'
+  complete.style.borderWidth = '2px'
+  complete.style.padding = '10px'
+  complete.style. = '10px'
+}
+
+
+
+
+checkComplete();
+
+
