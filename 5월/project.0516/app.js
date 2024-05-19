@@ -24,6 +24,14 @@ const server = http.createServer((request, response) => {
       let post= qs.parse(body);
     });
 
+
+    if(request.url.startsWith("/test")) {
+      const inputData = request.url.split("?")[1];
+      const data = qs.decode(inputData);
+      console.log(data.type);
+      const name = data.name;
+      const content = data.content;
+
       fs.writeFile( name + '.html', content, (err) => {
         if (err) throw err;
         console.log('The file has been saved!');

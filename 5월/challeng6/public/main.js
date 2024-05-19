@@ -62,6 +62,7 @@ function nameCheck() {
   for (let name of names) {
     if (username.value === name) {
       greenLight(0);
+      console.log(초록);
       break;
     } else {
       redLight(0);
