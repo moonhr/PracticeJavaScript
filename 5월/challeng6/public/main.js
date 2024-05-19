@@ -201,8 +201,13 @@ function checkComplete() {
  ** 버튼 활성화 문구
  */
 complete.addEventListener('click', (event) => {
-  event.preventDefault(); // 클릭 동작 취소
-  alert('완료되었습니다');
+  //모두 초록불이 아니라면
+  if (!lightStatus.every(status => status)) {
+    event.preventDefault();
+    alert('모든 필드를 올바르게 작성해 주세요.');
+  } else {
+    alert('완료되었습니다.');
+  }
 });
 
 checkComplete();
