@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lol</title>
+</head>
+<body>
+
+  <form action="/submit" method="post">
+    <div>이름 : </div>
+    <input type="text" id="name" name="name" placeholder="이름 입력창">
+    <div>주라인 : </div>
+    <select name="line" id="line">
+      <option value="top">탑</option>
+      <option value="jpl">정글</option>
+      <option value="mid">미드</option>
+      <option value="bot">원딜</option>
+      <option value="spt">서포터</option>
+    </select>
+    <div>주챔피언 : </div>
+    <input type="text" name="cham" id="cham" placeholder="없는 이름 입력 시 넘어가지 않습니다.">
+    <input type="submit" id="submit" value="제출">
+  </form>
+  <script src="main.js" type="module"></script>
+</body>
+</html>
