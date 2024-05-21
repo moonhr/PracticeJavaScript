@@ -1,3 +1,5 @@
+//* 본 문서는 객체를 html로 변경하는 퍼포먼스를 나타낸다.
+
 const htmlMarkup = {
   head : "헤드",
   body : "바디"
