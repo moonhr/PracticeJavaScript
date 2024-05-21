@@ -26,7 +26,7 @@ const server = http.createServer((request, response) => {
           content: content
         };
         const jsonDataString = JSON.stringify(jsonData, null, 2);
-        fs.writeFile(path.join(__dirname, "data.json"), jsonDataString, (err) => {
+        fs.writeFile(path.join(__dirname, content +" data.json"), jsonDataString, (err) => {
           if (err) {
             response.writeHead(500, {"Content-Type": "text/plain; charset=utf-8"});
             response.end("서버 자체 에러");
