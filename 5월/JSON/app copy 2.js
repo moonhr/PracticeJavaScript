@@ -9,21 +9,16 @@ console.log(todayDate());
 
 //* txt파일은 요소간의 맵핑이 어려워서 JSON이 나옴
 
-const htmlMarkup = {
-  head : {
-    title : "제이슨연습",
-  },
-  body : {
-    header : "메뉴",
-    main : "메인",
-    footer : "하단",
-  }
+const testJson = {
+  name : "문혜림agfswgwfgwg",
+  age : "24wggwgwgfwgwwgwgwfgwg",
+  city : "대전wfgwfsgwedsadgfrgewdsgrewds",
 }
 
 //* JSON은 꼭 전체 대문자
-let converJson = JSON.stringify(htmlMarkup, null, 2);
+let converJson = JSON.stringify(testJson, null, 2);
 
-const test = fs.writeFileSync( todayDate() + "-htmlMarkup.json", converJson, "utf-8", function(error){
+const test = fs.writeFileSync( todayDate() + "-test.json", converJson, "utf-8", function(error){
   //* 에러 발생시 에러처리
   if(error) {
     console.log("파일만드는 것 에러");
