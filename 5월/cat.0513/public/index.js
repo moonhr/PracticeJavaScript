@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // 1초 간격으로 반복
-  }, 500);
+  }, 100);
 });
 
 

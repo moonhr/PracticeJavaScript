@@ -1,47 +1,60 @@
-//* 비동기함수를 동기화
-//* 순서를 어기는 것을 순서를 지키게 하는 방법 = 콜백함수
+//자스 스타일 정석(콜백함수 익명)
 
-setTimeout(function(){
-  console.log("1 너구리가 공중부양");
+//* 변수 선언문으로 작성
 
-  setTimeout(function(){
-    console.log("2 공욱재가 늦잠");
-  }, 300)
+let counter = 0;
+const timer = function(){ 
 
-}, 300)
+  setTimeout(() => {
+  console.log(counter + "vw");
+  counter++;
 
-////////////////////////////////////////////////////
+  if(counter < 10){
+    //* 내가 나를 호출함 = 재귀
+    timer();
+  } else {
+    console.log("종료");
+  }
+  
+}, 15); 
+};
 
-//* a함수로 랩핑한다면
+timer();
 
-setTimeout(function() {
-  console.log("1. 너구리가 공중부양");
+//////////////////////////////////////
 
-  a();
+/**
+ * * 2024. 05. 22 문혜림
+ * * 종료방법이 없어서 핸들러를 밖에서 설정해줘야 함
+ * * 많이 쓰여지는 패턴
+ * * 반복적인 행동을 지원한다면 100퍼센트 setInterval
+ */
 
-}, 300)
+// ? 문법 : setInterval("반복실행", 실행간격);
 
-function a() {
-  setTimeout(function() {
-    console.log("2. 공욱재가 늦잠");
-  }, 300)
+let intervalHandler = 0;
+
+let time = setInterval(() => {
+
+  console.log(intervalHandler + '초');
+  intervalHandler++;
+  
+  if(intervalHandler > 10){
+    clearInterval(time);
+  }
+}, 1000);
+
+
+
+class a {
+  constructor(number){
+    this.number = number
+  }
+  b(){
+    
+  }
+  c(){
+
+  }
 
 }
-
-////////////////////////////////////////////////////
-
-//* 비동기함수의 동기처리
-
-setTimeout(function() {
-  console.log("1.배성빈");
-
-  setTimeout(function() {
-    console.log("2.김정수");
-
-    setTimeout(function() {
-      console.log("3.조우식");
-    }, 1000);
-
-  }, 2000);
-
-}, 3000);
