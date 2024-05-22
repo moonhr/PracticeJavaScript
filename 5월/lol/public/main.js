@@ -13,3 +13,5 @@ function check(){
   nameCheck(nameInput,input);
 }
 
+
+//챔피언 선택함수
