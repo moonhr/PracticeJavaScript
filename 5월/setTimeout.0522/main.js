@@ -57,9 +57,6 @@ click.addEventListener('click', () => {
     }, 10)
   }
 
-
-
-
   function circle2Process() {
     //circle2 left, top값 설정
     beforePxControl(circle2, set2Left, set2Top);
@@ -72,7 +69,6 @@ click.addEventListener('click', () => {
       }
     }, 10)
   }
-
 
   function circle3Process() {
     //circle2 left, top값 설정
