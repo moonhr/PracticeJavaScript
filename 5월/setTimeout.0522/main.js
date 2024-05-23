@@ -18,25 +18,40 @@ function afterPxControl(circle, left, top) {
   circle.style.left = `${left}px`;
   circle.style.top = `${top}px`;
 }
+//* 각 포지션 리터럴값
+let positionSet = {
+  circle1Set : {
+    moveLeft : -1453,
+    moveTop : -844
+  },
+  circle2Set : {
+    moveLeft : 1500,
+    moveTop : -800
+  },
+  circle3Set : {
+    moveLeft : 550,
+    moveTop : 1080
+  }
+}
+//* 값 축약
+let set1Left = positionSet.circle1Set.moveLeft
+let set1Top = positionSet.circle1Set.moveTop
+let set2Left = positionSet.circle2Set.moveLeft
+let set2Top = positionSet.circle2Set.moveTop
+let set3Left = positionSet.circle3Set.moveLeft
+let set3Top = positionSet.circle3Set.moveTop
 
 
 click.addEventListener('click', () => {
 
   function circle1Process() {
-    moveLeft = -1453;
-    moveTop = -844;
-
-    //circle1 left, top값 설정
-    beforePxControl(circle1, moveLeft, moveTop);
-
+    beforePxControl(circle1, set1Left, set1Top);
     //* 위치 이동 비동기 함수
     let circle1Move = setInterval(() => {
-      moveLeft += 10
-      moveTop += 10
-
-      afterPxControl(circle1, moveLeft, moveTop);
-
-      if (moveLeft > -800 || moveTop > 900) {
+      set1Left += 10
+      set1Top += 10
+      afterPxControl(circle1, set1Left, set1Top);
+      if (set1Left > -800 || set1Top > 900) {
         clearInterval(circle1Move);
       }
     }, 10)
@@ -46,53 +61,30 @@ click.addEventListener('click', () => {
 
 
   function circle2Process() {
-    let moveLeft = 1493;
-    let moveTop = -798;
-
     //circle2 left, top값 설정
-    beforePxControl(circle2, moveLeft, moveTop);
-
-
+    beforePxControl(circle2, set2Left, set2Top);
     let circle2Move = setInterval(() => {
-
-
-      moveLeft -= 10
-      moveTop += 10
-
-      afterPxControl(circle2, moveLeft, moveTop);
-
-      if (moveLeft < -100 || moveTop > 0) {
-
+      set2Left -= 10
+      set2Top += 10
+      afterPxControl(circle2, set2Left, set2Top);
+      if (set2Left < -100 || set2Top > 0) {
         clearInterval(circle2Move);
       }
-
     }, 10)
-
   }
 
 
   function circle3Process() {
-    let moveLeft = 552;
-    let moveTop = 1079;
-
     //circle2 left, top값 설정
-    beforePxControl(circle3, moveLeft, moveTop);
-
-
+    beforePxControl(circle3, set3Left, set3Top);
     let circle3Move = setInterval(() => {
-
-      moveLeft -= 10
-      moveTop -= 10
-
-      afterPxControl(circle3, moveLeft, moveTop);
-
-      if (moveLeft < 0 && moveTop < 331) {
-
+      set3Left -= 10
+      set3Top -= 10
+      afterPxControl(circle3, set3Left, set3Top);
+      if (set3Left < 0 && set3Top < 331) {
         clearInterval(circle3Move);
       }
-
     }, 10)
-
   }
 
   circle1Process();
