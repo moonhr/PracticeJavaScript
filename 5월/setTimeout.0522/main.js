@@ -1,136 +1,103 @@
-//case1
-// const circle1 = document.getElementById('circle1');
-// const circle2 = document.getElementById('circle2');
-// const circle3 = document.getElementById('circle3');
-// const click = document.getElementById('click');
-
-// circle1.style.position = "absolute";
-// circle1.style.left = "-1453px";
-// circle1.style.top = "-844px";
-
-// let circle1x = circle1.style.left.length;
-// let circle1y = circle1.style.top.length;
-// console.log(circle1.style);
-// console.log(circle1y);
-
-// let timer = 0;
-
-// let circle1Move = setInterval(() => {
-//   console.log('움직임');
-
-//   timer++
-
-//   // console.log(circle1x);
-//   if(timer == 100){
-//     clearInterval(circle1Move);
-    
-//   }
-// }, 1000)
-
 
 //! case2
 
 const click = document.getElementById('click.one');
-click.addEventListener('click',()=>{
-
-function circle1Process(){
-  const circle1 = document.getElementById('circle1');
-  let left = -1453;
-  let top = -844;
-  //circle1 left, top값 설정
-  circle1.style.left = Number(circle1.style.left.replace('px', '')) + left + 'px';
-  circle1.style.top = Number(circle1.style.top.replace('px', '')) + top + 'px';
-
-  console.log(circle1.style.left);
-  console.log(circle1.style.top);
+const circle1 = document.getElementById('circle1');
+const circle2 = document.getElementById('circle2');
+const circle3 = document.getElementById('circle3');
 
 
-  let circle1Move = setInterval(() => {
-    console.log('작동')
+//* 작동전 위치값에 대한 함수
+function beforePxControl(circle, left, top) {
+  circle.style.left = Number(circle1.style.left.replace('px', '')) + left + 'px';
+  circle.style.top = Number(circle1.style.top.replace('px', '')) + top + 'px';
+}
 
-  left += 10
-  top += 10
-
-  circle1.style.left = `${left}px`;
-  circle1.style.top = `${top}px`;
-
-  console.log(circle1.style.left);
-  console.log(circle1.style.top);
-
-    if(left > -800 || top > 900){
-
-    clearInterval(circle1Move);
-    }
-
-    }, 10)
-
+//* 작동이후 위치값에 대한 함수
+function afterPxControl(circle, left, top) {
+  circle.style.left = `${left}px`;
+  circle.style.top = `${top}px`;
 }
 
 
+click.addEventListener('click', () => {
+
+  function circle1Process() {
+    moveLeft = -1453;
+    moveTop = -844;
+
+    //circle1 left, top값 설정
+    beforePxControl(circle1, moveLeft, moveTop);
+
+    //* 위치 이동 비동기 함수
+    let circle1Move = setInterval(() => {
+      moveLeft += 10
+      moveTop += 10
+
+      afterPxControl(circle1, moveLeft, moveTop);
+
+      if (moveLeft > -800 || moveTop > 900) {
+        clearInterval(circle1Move);
+      }
+    }, 10)
+  }
 
 
-function circle2Process(){
-  const circle2 = document.getElementById('circle2');
-  let left = 1493;
-  let top = -798;
-  //circle2 left, top값 설정
-  circle2.style.left = Number(circle2.style.left.replace('px', '')) + left + 'px';
-  circle2.style.top = Number(circle2.style.top.replace('px', '')) + top + 'px';
 
-  console.log(circle2.style.left);
-  console.log(circle2.style.top);
 
-  let circle2Move = setInterval(() => {
-    console.log('작동')
+  function circle2Process() {
+    let moveLeft = 1493;
+    let moveTop = -798;
 
-  left -= 10
-  top += 10
+    //circle2 left, top값 설정
+    beforePxControl(circle2, moveLeft, moveTop);
 
-  circle2.style.left = `${left}px`;
-  circle2.style.top = `${top}px`;
 
-  console.log(circle2.style.left);
-  console.log(circle2.style.top);
+    let circle2Move = setInterval(() => {
 
-    if(left < -100 || top > 0){
 
-    clearInterval(circle2Move);
-    }
+      moveLeft -= 10
+      moveTop += 10
+
+      afterPxControl(circle2, moveLeft, moveTop);
+
+      if (moveLeft < -100 || moveTop > 0) {
+
+        clearInterval(circle2Move);
+      }
 
     }, 10)
 
-}
+  }
 
 
-function circle3Process(){
-  const circle3 = document.getElementById('circle3');
-  let left = 552;
-  let top = 1079;
-  //circle2 left, top값 설정
-  circle3.style.left = Number(circle3.style.left.replace('px', '')) + left + 'px';
-  circle3.style.top = Number(circle3.style.top.replace('px', '')) + top + 'px';
+  function circle3Process() {
+    let moveLeft = 552;
+    let moveTop = 1079;
 
-  let circle3Move = setInterval(() => {
-    console.log('작동')
+    //circle2 left, top값 설정
+    beforePxControl(circle3, moveLeft, moveTop);
 
-  left -= 10
-  top -= 10
 
-  circle3.style.left = `${left}px`;
-  circle3.style.top = `${top}px`;
+    let circle3Move = setInterval(() => {
 
-    if(left < 0 && top < 331){
+      moveLeft -= 10
+      moveTop -= 10
 
-    clearInterval(circle3Move);
-    }
+      afterPxControl(circle3, moveLeft, moveTop);
+
+      if (moveLeft < 0 && moveTop < 331) {
+
+        clearInterval(circle3Move);
+      }
 
     }, 10)
 
-}
+  }
 
-circle1Process();
-circle2Process();
-circle3Process();
+  circle1Process();
+  circle2Process();
+  circle3Process();
 
 });
 
