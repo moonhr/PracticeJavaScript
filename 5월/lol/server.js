@@ -36,6 +36,8 @@ const server = http.createServer((request, response) => {
 
 });
 
+
+
 const PORT = 8080;
 server.listen(PORT, function(err) {
   if(err) {
@@ -44,3 +46,26 @@ server.listen(PORT, function(err) {
   console.log("서버 돌아감");
   console.log(`http://localhost:${PORT}`);
 })
+
+
+
+const chamName = JSON.parse(fs.readFileSync("./champion.json"));
+let dataaaa = [];
+for(let data in chamName){
+  if(data === "data"){
+    for(let a in chamName[data]){
+      for(let b in chamName[data][a]){
+        if(b === 'name'){
+          // console.log(chamName[data][a][b]);
+          let cham = [];
+          cham.push(chamName[data][a][b]);
+          console.log(cham);
+
+
+
+        }
+      }
+    }
+  }
+}
+
