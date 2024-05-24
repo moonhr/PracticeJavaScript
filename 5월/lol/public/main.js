@@ -5,12 +5,16 @@
 
 const nameInput = document.getElementById("name");
 const chamInput = document.getElementById("cham");
+const lineInput = document.getElementById("line");
 const input = document.getElementById("submit");
 
 
 //* addEventListener는 함수를 보내주지 않으면 다시 호출되지 않음.
 // nameInput.addEventListener('blur',check1);
 // chamInput.addEventListener('blur',check2);
+
+
+
 
 // function check1(){
 //   nameCheck(nameInput,input);

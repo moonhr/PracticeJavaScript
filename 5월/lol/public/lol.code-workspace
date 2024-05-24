@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../readLine.0523"
+		},
+		{
+			"path": "../../post.0523"
+		},
+		{
+			"path": "../../challeng6-문혜림"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "setTimeout.0522"
+	}
+}
