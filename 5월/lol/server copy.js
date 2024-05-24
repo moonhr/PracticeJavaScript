@@ -1,13 +1,27 @@
-const serverSet = require("./serverset");
-serverSet(3000);
-console.log(`http://localhost:3000`);
-
-
+const http = require("http");
+const fs = require("fs");
 const chamName = require("./champion.json")
 const mamberName = require("./module/namedata")
 
-const http = require("http");
 const server = http.createServer((req, res) => {
+  //* GET 요청 시 응답
+  if(req.method === "GET") {
+    const getResponse = (url, filePath, contentType) => {
+      if(req.url === url){
+        const file = fs.readFileSync(filePath);
+        res.statusCode = 200;
+        res.setHeader('Content-Type', contentType);
+        res.write(file);
+        res.end();
+        return;
+      }
+    }
+    getResponse('/', './public/index.html', 'text/html; charset=utf-8');
+    getResponse('/favicon.ico', './favicon.ico', 'image/vnd.microsoft.icon;');
+    getResponse('/main.js', './public/main.js', 'text/javascript;');
+    // getResponse('/', './public/index.html', 'text/html; charset=uft-8');
+  }
+  //* POST 요청 시 응답
   if(req.method === "POST") {
     let body = "";
     req.on('data',  (data) => body += data );
@@ -24,8 +38,13 @@ const server = http.createServer((req, res) => {
       res.statusCode = 200;
       res.end();
     })
+  } else {
+    res.writeHead(404, {"Content-Type": "text/plain; charset=utf-8"});
+    res.end("404 code는 페이지를 찾을 수 없음");
   }
-})
+  console.log("요청 URL 검사 :", req.url);
+});
+
 
 //* 챔피언 이름만 담을 빈 배열 만들기
 let cham = [];
@@ -57,15 +76,25 @@ function chamCheck(value, res){
 }
 //* 이름 검사 함수
 function nameCheck(value, res){
-  const names = cham.includes(value);
+  const names = cham.find(str => str === value);
   if(names){
     res.statusCode = 200;
     res.end();
-    console.log("ok")
   }
   else{
     res.statusCode = 204;
     res.end();
-    console.log("no")
   }
 }
+
+
+
+const PORT = 8080;
+server.listen(PORT, function(err) {
+  if(err) {
+    console.log(err);
+  }
+  console.log("서버 돌아감");
+  console.log(`http://localhost:${PORT}`);
+})
+
