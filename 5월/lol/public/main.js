@@ -12,8 +12,9 @@ const input = document.getElementById("submit");
 //* addEventListener는 함수를 보내주지 않으면 다시 호출되지 않음.
 // nameInput.addEventListener('blur',check1);
 // chamInput.addEventListener('blur',check2);
-
-
+function menu100{
+  
+}
 
 
 // function check1(){
