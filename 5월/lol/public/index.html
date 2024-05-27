@@ -9,9 +9,9 @@
 <body>
   <h1 id="title">What’s your position?</h1>
   <form action="/submit" method="post">
-    <div class="menu">NAME</div>
+    <div class="menu" id="name.menu">NAME</div>
     <input type="text" id="name" name="name" class="search" placeholder="이름 입력창">
-    <div class="menu">LINE</div>
+    <div class="menu" id="line.menu">LINE</div>
     <select name="line" id="line" class="search" >
       <option value="top">탑</option>
       <option value="jpl">정글</option>
@@ -19,7 +19,7 @@
       <option value="bot">원딜</option>
       <option value="spt">서포터</option>
     </select>
-    <div class="menu">CHAMPION</div>
+    <div class="menu" id="champion.menu">CHAMPION</div>
     <input type="text" name="cham" id="cham" class="search"  placeholder="없는 이름 입력 시 넘어가지 않습니다.">
     <input type="submit" id="submit" value="제출">
   </form>

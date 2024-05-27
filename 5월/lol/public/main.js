@@ -1,5 +1,6 @@
 //nameCheck 모듈을 가져오기
-// import { nameCheck } from "../module/nameCheck.js"
+import { memberNames } from "../module/namedata.js"
+// const memberNames = require("../module/namedata.js")
 // import { chamCheck } from "../module/chamCheck.js";
 // const nameCheck = require("node:fs"); 이건 Node방식
 
@@ -21,22 +22,27 @@ const input = document.getElementById("submit");
 //   nameCheck(nameInput,input);
 // }
 
-function nameCheck(nameInput, submit){
+function nameCheck(){
+
+  let nameMenu = document.getElementById('name.menu')
 
   //includes메서드는 배열에 ()가 있는지 참거짓을 테스트함
-  const student = memberNames.includes(nameInput.value)
+  let student = memberNames.includes(nameInput.value)
 
   console.log(student)
   console.log(nameInput.value)
 
   if(student){
-    submit.style.display = 'block';
+    nameMenu.style.color = rgba(255,255,255,1);
     console.log('있음');
   } else {
-    submit.style.display = 'none';
+    nameMenu.style.color = rgba(255,255,255,0.2);
     console.log('아님');
   }
 }
+
+nameInput.addEventListener('blur',nameCheck);
+
 
 // function check2(){
 //   chamCheck(chamInput);
