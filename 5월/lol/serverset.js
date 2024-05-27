@@ -1,7 +1,11 @@
 import http from "http"
 import fs from "fs"
 import path from "path"
+import { fileURLToPath } from "url";
 import qs from "querystring"
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export const serverSet = function serverSet(port) {
   // const http = require("http");
@@ -25,13 +29,14 @@ export const serverSet = function serverSet(port) {
   const fileUtils = {
     //*매개변수 url에 따른 파일 경로 할당
     getFilePath: function (url) {
-      let filePath;
+      // URL에 따라 파일 경로를 설정
       if (url === "/") {
-        filePath = "./public/index.html";
+        return path.join(__dirname, "./public/index.html");
+      } else if (url === "/module/namedata.js") {
+        return path.join(__dirname, "./module/namedata.js");
       } else {
-        filePath = `./public${url}`;
+        return path.join(__dirname, `./public${url}`);
       }
-      return filePath;
     },
     //*파일 경로에 따른 파일 확장자 가져오기
     getFileExtension: function (filePath) {
@@ -55,7 +60,9 @@ export const serverSet = function serverSet(port) {
   function getMethod(req, res, filePath, contentType) {
     fs.readFile(filePath, (err, data) => {
       if (err) {
-        console.log("오류 발생 : ", err);
+        res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
+        res.end("404 Not Found: 요청하신 파일을 찾을 수 없습니다.");
+        console.log("오류 발생:", err);
       } else {
         res.writeHead(200, { "Content-Type": contentType });
         res.end(data);

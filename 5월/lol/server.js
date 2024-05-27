@@ -5,10 +5,12 @@ import http from "http"
 serverSet(3000);
 console.log(`http://localhost:3000`);
 
-import {chamName} from "./champion.json"
-import {mamberName} from "./module/namedata.js"
+// import {chamName} from "./champion.json" 
+import {memberNames} from "./module/namedata.js"
+import { type } from "os";
+
 // const chamName = require("./champion.json")
-// const mamberName = require("./module/namedata")
+// const memberName = require("./module/namedata")
 
 const server = http.createServer((req, res) => {
   if(req.method === "POST") {
@@ -30,37 +32,37 @@ const server = http.createServer((req, res) => {
   }
 })
 
-//* 챔피언 이름만 담을 빈 배열 만들기
-let cham = [];
-//* json 데이터에서 이름 객체 뽑아서 배열에 밀어넣기
-for(let data in chamName){
-  if(data === "data"){
-    for(let a in chamName[data]){
-      for(let b in chamName[data][a]){
-        if(b === 'name'){
-          // console.log(chamName[data][a][b]);
-          // let cham = [];
-          cham.push(chamName[data][a][b]);
-        }
-      }
-    }
-  }
-}
-//* 챔피언 검사 함수
-function chamCheck(value, res){
-  const champion = cham.find(str => str === value);
-  if(champion){
-    res.statusCode = 200;
-    res.end();
-  }
-  else{
-    res.statusCode = 204;
-    res.end();
-  }
-}
+// //* 챔피언 이름만 담을 빈 배열 만들기
+// let cham = [];
+// //* json 데이터에서 이름 객체 뽑아서 배열에 밀어넣기
+// for(let data in chamName){
+//   if(data === "data"){
+//     for(let a in chamName[data]){
+//       for(let b in chamName[data][a]){
+//         if(b === 'name'){
+//           // console.log(chamName[data][a][b]);
+//           // let cham = [];
+//           cham.push(chamName[data][a][b]);
+//         }
+//       }
+//     }
+//   }
+// }
+// //* 챔피언 검사 함수
+// function chamCheck(value, res){
+//   const champion = cham.find(str => str === value);
+//   if(champion){
+//     res.statusCode = 200;
+//     res.end();
+//   }
+//   else{
+//     res.statusCode = 204;
+//     res.end();
+//   }
+// }
 //* 이름 검사 함수
 function nameCheck(value, res){
-  const names = cham.includes(value);
+  const names = memberNames.includes(value);
   if(names){
     res.statusCode = 200;
     res.end();
