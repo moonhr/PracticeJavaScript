@@ -1,8 +1,8 @@
 import {memberNames} from "./name";
 
-
+const input = document.getElementById('input');
 function check(){
-  let input = document.getElementById('input');
+  
   let box = document.getElementById('box');
   memberNames.forEach(element => {
     if(input.value = element){
@@ -12,3 +12,5 @@ function check(){
     }
   });
 }
+
+input.addEventListener('input',check);
