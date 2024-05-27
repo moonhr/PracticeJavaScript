@@ -1,4 +1,5 @@
-const serverSet = require("./serverset");
+// const serverSet = require("./serverset");
+import serverSet from "./serverset";
 serverSet(3000);
 console.log(`http://localhost:3000`);
 
