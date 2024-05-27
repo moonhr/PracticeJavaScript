@@ -23,10 +23,10 @@ function nameCheck(){
   console.log(nameInput.value)
 
   if(student){
-    nameMenu.style.color = rgba(255,255,255,1);
+    nameMenu.style.color = "rgba(255,255,255,1)";
     console.log('있음');
   } else {
-    nameMenu.style.color = rgba(255,255,255,0.2);
+    nameMenu.style.color = "rgba(255,255,255,0.2)";
     console.log('아님');
   }
 }

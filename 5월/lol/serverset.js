@@ -1,8 +1,13 @@
-const serverSet = function serverSet(port) {
-  const http = require("http");
-  const fs = require("fs");
-  const path = require("path");
-  const qs = require("node:querystring");
+import http from "http"
+import fs from "fs"
+import path from "path"
+import qs from "querystring"
+
+export const serverSet = function serverSet(port) {
+  // const http = require("http");
+  // const fs = require("fs");
+  // const path = require("path");
+  // const qs = require("node:querystring");
   //*문서 형식에 따른 표기
   const mimeType = {
     ".html": "text/html; charset=utf-8",
@@ -120,4 +125,4 @@ const serverSet = function serverSet(port) {
 //? export한 데이터 받아오는 명령어
 //?const serverSet = require("./serverSet");
 
-module.exports = serverSet;
+// module.exports = serverSet;

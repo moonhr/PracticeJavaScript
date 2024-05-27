@@ -1,21 +1,23 @@
 // const serverSet = require("./serverset");
-import serverSet from "./serverset";
+import {serverSet} from "./serverset.js";
+import http from "http"
+
 serverSet(3000);
 console.log(`http://localhost:3000`);
 
+import {chamName} from "./champion.json"
+import {mamberName} from "./module/namedata.js"
+// const chamName = require("./champion.json")
+// const mamberName = require("./module/namedata")
 
-const chamName = require("./champion.json")
-const mamberName = require("./module/namedata")
-
-const http = require("http");
 const server = http.createServer((req, res) => {
   if(req.method === "POST") {
     let body = "";
     req.on('data',  (data) => body += data );
     req.on('end', () => {
-      let bodyObj =JSON.parse(body);
-      let id = bodyObj.id;
-      let value = bodyObj.value;
+      let body =JSON.parse(body);
+      let id = body.id;
+      let value = body.value;
       
       //* 이름 확인
       if(id == "name"){
