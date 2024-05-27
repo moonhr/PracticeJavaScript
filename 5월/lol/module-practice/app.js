@@ -15,7 +15,10 @@ const server = http.createServer((req, res) => {
       }
     }
     getResponse('/', './index.html', 'text/html; charset=utf-8');
+    getResponse('/main.js', './main.js', 'text/javascript;');
+    getResponse('/name', './name.js', 'text/javascript;');
   }
+  console.log("요청 URL 검사 :", req.url);
 })
 
 
