@@ -45,7 +45,7 @@ function chamCheck(){
   let cham = [];
   //* json 데이터에서 이름 객체 뽑아서 배열에 밀어넣기
   for(let a in chams){
-    console.log(a)
+    // console.log(a)
     if(a === 'data'){
       for(let b in chams[a]){
         for(let c in chams[a][b])
@@ -56,10 +56,10 @@ function chamCheck(){
     }
   }
   
-  // console.log(cham);
   for(let element of cham){
     if(chamInput.value === element){
       championMenu.style.color = "rgba(255,255,255,1)";
+      return;
     } else {
       championMenu.style.color = "rgba(255,255,255,0.2)";
     }

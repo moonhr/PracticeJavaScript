@@ -83,7 +83,7 @@ export const serverSet = function serverSet(port) {
       let parse = JSON.stringify(qparse);
       let jparse = JSON.parse(parse);
       fs.writeFile(
-        path.join(__dirname, `./data/${jparse.title}.html`),
+        path.join(__dirname, `./data/${jparse.title}.json`),
         `${parse}`,
         (err) => {
           console.log(err);
@@ -102,6 +102,7 @@ export const serverSet = function serverSet(port) {
     let ext = fileUtils.getFileExtension(filePath);
     //*contentType 변수는 getContentType에 ext를 삽입한 값으로 할당
     let contentType = fileUtils.getContentType(ext);
+
 
     if (req.method === "GET") {
       getMethod(req, res, filePath, contentType);

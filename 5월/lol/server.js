@@ -7,7 +7,7 @@ console.log(`http://localhost:3000`);
 
 // import {chamName} from "./champion.json" 
 import {memberNames} from "./module/namedata.js"
-import { type } from "os";
+// import { type } from "os";
 
 // const chamName = require("./champion.json")
 // const memberName = require("./module/namedata")
@@ -26,8 +26,12 @@ const server = http.createServer((req, res) => {
         nameCheck(value, res);
       }
 
+      
+
       res.statusCode = 200;
       res.end();
+
+
     })
   }
 })
