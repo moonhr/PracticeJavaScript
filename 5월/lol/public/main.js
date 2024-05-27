@@ -1,18 +1,15 @@
 //nameCheck 모듈을 가져오기
 import { memberNames } from "../module/namedata.js"
-// const memberNames = require("../module/namedata.js")
-// import { chamCheck } from "../module/chamCheck.js";
-// const nameCheck = require("node:fs"); 이건 Node방식
+import chams from "./champion.json" with { type: "json" }
 
 
-const chamInput = document.getElementById("cham");
 const input = document.getElementById("submit");
 
 
 //* addEventListener는 함수를 보내주지 않으면 다시 호출되지 않음.
 const nameInput = document.getElementById("name");
 const lineInput = document.getElementById("line");
-
+const chamInput = document.getElementById("cham");
 
 
 function nameCheck(){
@@ -41,9 +38,39 @@ function lineCheck(){
   }
 }
 
+function chamCheck(){
+  console.log("chamCheck 작동중");
+  let championMenu = document.getElementById('champion.menu');
+  //* 챔피언 이름만 담을 빈 배열 만들기
+  let cham = [];
+  //* json 데이터에서 이름 객체 뽑아서 배열에 밀어넣기
+  for(let a in chams){
+    console.log(a)
+    if(a === 'data'){
+      for(let b in chams[a]){
+        for(let c in chams[a][b])
+          if(c === 'name'){
+            cham.push(chams[a][b][c]);
+          }
+      }
+    }
+  }
+  
+  // console.log(cham);
+  for(let element of cham){
+    if(chamInput.value === element){
+      championMenu.style.color = "rgba(255,255,255,1)";
+    } else {
+      championMenu.style.color = "rgba(255,255,255,0.2)";
+    }
+  }
+}
+
+
 
 nameInput.addEventListener('blur',nameCheck);
 lineInput.addEventListener('change',lineCheck);
+chamInput.addEventListener('blur',chamCheck);
 
 
 
