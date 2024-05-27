@@ -24,12 +24,13 @@ function nameCheck(){
 
   if(student){
     nameMenu.style.color = "rgba(255,255,255,1)";
-    console.log('있음');
   } else {
     nameMenu.style.color = "rgba(255,255,255,0.2)";
-    console.log('아님');
   }
 }
+
+
+
 
 nameInput.addEventListener('blur',nameCheck);
 
