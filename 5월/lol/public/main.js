@@ -2,6 +2,25 @@ let nameValid = false;
 let lineValid = false;
 let chamValid = false;
 
+import {chamName} from "./champion.json" 
+
+//* 챔피언 이름만 담을 빈 배열 만들기
+let chams = [];
+//* json 데이터에서 이름 객체 뽑아서 배열에 밀어넣기
+for(let data in chamName){
+  if(data === "data"){
+    for(let a in chamName[data]){
+      for(let b in chamName[data][a]){
+        if(b === 'name'){
+          // console.log(chamName[data][a][b]);
+          // let cham = [];
+          chams.push(chamName[data][a][b]);
+        }
+      }
+    }
+  }
+}
+
 document.getElementById("name").addEventListener('blur',async()=>{
   let name = this.value;
   let nameMenu = document.getElementById('name.menu');
@@ -60,6 +79,7 @@ function updateSubmitButton() {
     submitButton.disabled = true;
   }
 }
+
 // function nameCheck(){
 //   let nameMenu = document.getElementById('name.menu')
 //   //includes메서드는 배열에 ()가 있는지 참거짓을 테스트함

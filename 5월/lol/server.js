@@ -5,7 +5,6 @@ import http from "http"
 serverSet(3000);
 console.log(`http://localhost:3000`);
 
-// import {chamName} from "./champion.json" 
 import {memberNames} from "./module/namedata.js"
 // import { type } from "os";
 
@@ -13,24 +12,26 @@ import {memberNames} from "./module/namedata.js"
 // const memberName = require("./module/namedata")
 
 const server = http.createServer((req, res) => {
+  
   if(req.method === "POST") {
     let body = "";
-    req.on('data',  (data) => body += data );
+    req.on('data',  (data) => body += data);
     req.on('end', () => {
       let body =JSON.parse(body);
       let id = body.id;
       let value = body.value;
       
       //* 이름 확인
-      if(id == "name"){
+      if(id === "name"){
         nameCheck(value, res);
       }
 
-      
+      else if(id === "cham"){
+        chamCheck(value, res);
+      }
 
       res.statusCode = 200;
       res.end();
-
 
     })
   }
@@ -78,3 +79,4 @@ function nameCheck(value, res){
     console.log("no")
   }
 }
+

@@ -83,7 +83,7 @@ export const serverSet = function serverSet(port) {
       let parse = JSON.stringify(qparse);
       let jparse = JSON.parse(parse);
       fs.writeFile(
-        path.join(__dirname, `./data/${jparse.title}.json`),
+        path.join(__dirname, `./data/${jparse.name}.json`),
         `${parse}`,
         (err) => {
           console.log(err);

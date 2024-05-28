@@ -44,3 +44,7 @@ body form {
 .menu20 {
   color: rgba(255, 255, 255, 0.2);
 }/*# sourceMappingURL=style.css.map */
+
+.hidden {
+  display: none;
+}

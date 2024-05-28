@@ -1,95 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <title>Form Validation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lol</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        h1 { color: black; }
-        h1.valid { color: green; }
-        h1.invalid { color: red; }
-        .hidden { display: none; }
+      body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #333;
+}
+
+.menu {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.search {
+  display: block;
+  margin: 5px 0;
+  transition: font-size 0.3s;
+}
+
+.search.enlarged {
+  font-size: 1.5em;
+}
+
+#submit {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+#submit.hidden {
+  display: none;
+}
+
+#submit:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
     </style>
-</head>
-<body>
-    <h1 id="status">Enter your details</h1>
-    <input type="text" id="nameInput" placeholder="Enter name">
-    <select id="lineInput">
-        <option value="">Select line</option>
-        <option value="Top">Top</option>
-        <option value="Mid">Mid</option>
-        <option value="Bot">Bot</option>
-        <option value="Jungle">Jungle</option>
-        <option value="Support">Support</option>
-    </select>
-    <input type="text" id="chamInput" placeholder="Enter champion">
-    <button id="submitButton" class="hidden">Submit</button>
+  </head>
+  <body>
+    <h1 id="title">What’s your position?</h1>
+    <form action="/submit" method="post">
+      <div class="menu" id="name.menu">NAME</div>
+      <input type="text" id="name" name="name" class="search" placeholder="이름 입력창">
+      <div class="menu" id="line.menu">LINE</div>
+      <select name="line" id="line" class="search" >
+        <option value="top">탑</option>
+        <option value="jpl">정글</option>
+        <option value="mid">미드</option>
+        <option value="bot">원딜</option>
+        <option value="spt">서포터</option>
+      </select>
+      <div class="menu" id="champion.menu">CHAMPION</div>
+      <input type="text" name="cham" id="cham" class="search"  placeholder="없는 이름 입력 시 넘어가지 않습니다.">
+      <input type="submit" id="submit" value="제출">
+    </form>
+  </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const nameInput = document.getElementById('name');
+  const lineInput = document.getElementById('line');
+  const chamInput = document.getElementById('cham');
+  const submitButton = document.getElementById('submit');
 
-    <script>
-        let nameValid = false;
-        let lineValid = false;
-        let chamValid = false;
+  let nameValid = false;
+  let lineValid = false;
+  let chamValid = false;
 
-        document.getElementById('nameInput').addEventListener('blur', async function() {
-            const name = this.value;
-            const response = await fetch('/validate-name', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name })
-            });
-            const result = await response.json();
-            nameValid = result.valid;
-            updateStatus();
-        });
+  nameInput.addEventListener('blur', async () => {
+    const name = nameInput.value;
+    const response = await fetch('/validate-name', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name })
+    });
+    const result = await response.json();
+    nameValid = result.valid;
+    if (nameValid) {
+      nameInput.classList.add('enlarged');
+    } else {
+      nameInput.classList.remove('enlarged');
+    }
+    updateSubmitButton();
+  });
 
-        document.getElementById('lineInput').addEventListener('change', function() {
-            lineValid = this.value !== '';
-            updateStatus();
-        });
+  lineInput.addEventListener('change', () => {
+    lineValid = lineInput.value !== '';
+    if (lineValid) {
+      lineInput.classList.add('enlarged');
+    } else {
+      lineInput.classList.remove('enlarged');
+    }
+    updateSubmitButton();
+  });
 
-        document.getElementById('chamInput').addEventListener('blur', async function() {
-            const cham = this.value;
-            const response = await fetch('/validate-cham', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ cham })
-            });
-            const result = await response.json();
-            chamValid = result.valid;
-            updateStatus();
-        });
+  chamInput.addEventListener('blur', async () => {
+    const cham = chamInput.value;
+    const response = await fetch('/validate-cham', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cham })
+    });
+    const result = await response.json();
+    chamValid = result.valid;
+    if (chamValid) {
+      chamInput.classList.add('enlarged');
+    } else {
+      chamInput.classList.remove('enlarged');
+    }
+    updateSubmitButton();
+  });
 
-        function updateStatus() {
-            const statusElement = document.getElementById('status');
-            const submitButton = document.getElementById('submitButton');
-            if (nameValid && lineValid && chamValid) {
-                statusElement.classList.add('valid');
-                statusElement.classList.remove('invalid');
-                submitButton.classList.remove('hidden');
-                submitButton.disabled = false;
-            } else {
-                statusElement.classList.remove('valid');
-                statusElement.classList.add('invalid');
-                submitButton.classList.add('hidden');
-                submitButton.disabled = true;
-            }
-        }
+  function updateSubmitButton() {
+    if (nameValid && lineValid && chamValid) {
+      submitButton.classList.remove('hidden');
+      submitButton.disabled = false;
+    } else {
+      submitButton.classList.add('hidden');
+      submitButton.disabled = true;
+    }
+  }
+});
 
-        document.getElementById('submitButton').addEventListener('click', async function() {
-            const name = document.getElementById('nameInput').value;
-            const line = document.getElementById('lineInput').value;
-            const cham = document.getElementById('chamInput').value;
-            const response = await fetch('/submit', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, line, cham })
-            });
-            const result = await response.json();
-            if (result.success) {
-                window.location.href = `/submitted-data.html`;
-            } else {
-                alert('Submission failed');
-            }
-        });
-    </script>
-</body>
+  </script>
 </html>
