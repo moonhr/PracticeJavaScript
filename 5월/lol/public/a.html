@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation</title>
+    <style>
+        h1 { color: black; }
+        h1.valid { color: green; }
+        h1.invalid { color: red; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <h1 id="status">Enter your details</h1>
+    <input type="text" id="nameInput" placeholder="Enter name">
+    <select id="lineInput">
+        <option value="">Select line</option>
+        <option value="Top">Top</option>
+        <option value="Mid">Mid</option>
+        <option value="Bot">Bot</option>
+        <option value="Jungle">Jungle</option>
+        <option value="Support">Support</option>
+    </select>
+    <input type="text" id="chamInput" placeholder="Enter champion">
+    <button id="submitButton" class="hidden">Submit</button>
+
+    <script>
+        let nameValid = false;
+        let lineValid = false;
+        let chamValid = false;
+
+        document.getElementById('nameInput').addEventListener('blur', async function() {
+            const name = this.value;
+            const response = await fetch('/validate-name', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name })
+            });
+            const result = await response.json();
+            nameValid = result.valid;
+            updateStatus();
+        });
+
+        document.getElementById('lineInput').addEventListener('change', function() {
+            lineValid = this.value !== '';
+            updateStatus();
+        });
+
+        document.getElementById('chamInput').addEventListener('blur', async function() {
+            const cham = this.value;
+            const response = await fetch('/validate-cham', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ cham })
+            });
+            const result = await response.json();
+            chamValid = result.valid;
+            updateStatus();
+        });
+
+        function updateStatus() {
+            const statusElement = document.getElementById('status');
+            const submitButton = document.getElementById('submitButton');
+            if (nameValid && lineValid && chamValid) {
+                statusElement.classList.add('valid');
+                statusElement.classList.remove('invalid');
+                submitButton.classList.remove('hidden');
+                submitButton.disabled = false;
+            } else {
+                statusElement.classList.remove('valid');
+                statusElement.classList.add('invalid');
+                submitButton.classList.add('hidden');
+                submitButton.disabled = true;
+            }
+        }
+
+        document.getElementById('submitButton').addEventListener('click', async function() {
+            const name = document.getElementById('nameInput').value;
+            const line = document.getElementById('lineInput').value;
+            const cham = document.getElementById('chamInput').value;
+            const response = await fetch('/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, line, cham })
+            });
+            const result = await response.json();
+            if (result.success) {
+                window.location.href = `/submitted-data.html`;
+            } else {
+                alert('Submission failed');
+            }
+        });
+    </script>
+</body>
+</html>
